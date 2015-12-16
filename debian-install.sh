@@ -13,7 +13,9 @@ update-alternatives --config editor
 
 USER=`cat /etc/passwd | grep 1000 | cut -d':' -f1`
 
-sudo -H -u $USER -c "ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ''"
+su $USER
+ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ""
+
 echo "function getip {" >> /home/$USER/.bashrc
 echo "    /bin/ifconfig | /bin/grep 'inet addr' | /usr/bin/cut -d':' -f2 | /usr/bin/cut -d' ' -f1" >> /home/$USER/.bashrc
 echo "}" >> /home/$USER/.bashrc
