@@ -20,8 +20,8 @@ echo "function getip {" >> /home/$USER/.bashrc
 echo "    /bin/ifconfig | /bin/grep 'inet addr' | /usr/bin/cut -d':' -f2 | /usr/bin/cut -d' ' -f1" >> /home/$USER/.bashrc
 echo "}" >> /home/$USER/.bashrc
 echo "" >> /home/$USER/.bashrc
-echo "' '" >> /home/$USER/.bashrc
+echo "echo ' '" >> /home/$USER/.bashrc
 echo "getip" >> /home/$USER/.bashrc
-echo "' '" >> /home/$USER/.bashrc
+echo "echo ' '" >> /home/$USER/.bashrc
 
 ifconfig | grep 'inet addr' | cut -d':' -f 2 | cut -d' ' -f 1
