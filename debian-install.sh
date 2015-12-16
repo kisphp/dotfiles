@@ -5,10 +5,9 @@
 # run as root
 apt-get update
 apt-get upgrade
-apt-get install vim tree mc nodejs npm curl git
+apt-get -y install vim tree mc nodejs npm curl git sudo
 cp /etc/vim/vimrc /etc/vim/vimrc.original
 wget http://old.kisphp.net/vimrc.txt -O /etc/vim/vimrc
-apt-get install sudo
 ln -s /sbin/ifconfig /bin/ifconfig
 update-alternatives --config editor
 
