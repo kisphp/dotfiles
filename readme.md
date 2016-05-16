@@ -3,7 +3,7 @@
 ### Installation
 
 ```
-run script
+curl https://cdn.rawgit.com/kisphp/dotfiles/new-files/install.sh | bash -
 ```
 
 ### Update
