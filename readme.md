@@ -3,7 +3,7 @@
 ### Install
 
 ```
-curl https://cdn.rawgit.com/kisphp/dotfiles/master/install.sh | bash -
+curl https://rawcdn.githack.com/kisphp/dotfiles/master/install.sh | bash -
 ```
 
 ### Update
