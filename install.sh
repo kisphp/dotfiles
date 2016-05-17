@@ -25,3 +25,7 @@ fi
 echo " "
 echo "-----Installed-----"
 echo " "
+echo "!!!! Don't forget to run:"
+echo " "
+echo "source $ZSH_FILE"
+echo " "
