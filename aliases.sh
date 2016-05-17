@@ -4,7 +4,7 @@ alias p2='python2'
 alias p3='python3'
 
 # run php code fixer
-pfix {
+function pfix {
     if [[ -f 'vendor/bin/php-cs-fixer' ]]; then
         php vendor/bin/php-cs-fixer fix -v
     fi
