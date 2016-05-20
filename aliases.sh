@@ -32,3 +32,12 @@ alias vagof='vagrant suspend'
 
 # suspend a vagrant box and close terminal window/tab
 alias vagoff='vagrant suspend && exit'
+
+# restart apache (ubuntu/debian)
+alias apare='sudo /etc/init.d/apache2 restart'
+
+# restart nginx
+alias ngre='sudo /etc/init.d/nginx restart'
+
+# restart mysql
+alias myre='sudo /etc/init.d/mysql restart'
