@@ -24,6 +24,15 @@ function vagSrc {
     grep -Hrni 'SharedFolder name="vagrant"' $1
 }
 
+function kvm {
+    if [[ -z $1 ]]; then
+        DIR='_vm'
+    else
+        DIR=$1
+    fi
+    git clone https://github.com/kisphp/symfony-vagrant.git $DIR
+}
+
 # start vagrant box and connect
 alias vagon='vagrant up && vagrant ssh'
 
