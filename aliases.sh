@@ -42,6 +42,12 @@ alias vagof='vagrant suspend'
 # suspend a vagrant box and close terminal window/tab
 alias vagoff='vagrant suspend && exit'
 
+# destroy vagrant box
+alias vagkill='vagrant destroy'
+
+# destory vagrant box alias
+alias vagkil='vagkill'
+
 # restart apache (ubuntu/debian)
 alias apare='sudo /etc/init.d/apache2 restart'
 
