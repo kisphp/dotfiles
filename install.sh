@@ -1,12 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 GIT=`which git`
 DIR='.dotfiles'
 
 if [[ ! -z "$ZSH" ]];then
-    ZSH_FILE='~/.zshrc'
+    ZSH_FILE="$HOME/.zshrc"
 else
-    ZSH_FILE='~/.bashrc'
+    ZSH_FILE="$HOME/.bashrc"
 fi
 
 ALIASES_SCRIPT='.dotfiles/aliases.sh'
