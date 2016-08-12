@@ -13,13 +13,13 @@ ALIASES_SCRIPT='.dotfiles/aliases.sh'
 
 if [[ ! -d "$HOME/$DIR" ]];then
     echo "--- Clone repository ---"
-    #echo "$GIT clone https://github.com/kisphp/dotfiles.git $HOME/$DIR"
+
     $GIT clone https://github.com/kisphp/dotfiles.git "$HOME/$DIR"
 fi
 
-if [[ ! `cat ~/.zshrc | grep "$ALIASES_SCRIPT"` ]]; then
+if [[ ! `cat $ZSH_FILE | grep "$ALIASES_SCRIPT"` ]]; then
     echo "--register aliases--"
-    echo ". ~/$ALIASES_SCRIPT" >> ~/.zshrc
+    echo ". ~/$ALIASES_SCRIPT" >> $ZSH_FILE
 fi
 
 echo " "

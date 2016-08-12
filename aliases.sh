@@ -17,6 +17,7 @@ function pfix {
 # find vagrant installed boxes
 function findbox {
     find ~/VirtualBox\ Vms -type f -name '*.vbox'
+    find ~/VirtualBox_Vms -type f -name '*.vbox'
 }
 
 # find vagrant box location
