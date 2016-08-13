@@ -3,7 +3,7 @@
 GIT=`which git`
 DIR='.dotfiles'
 
-if [[ ! -z "$ZSH" ]];then
+if [[ -f "$HOME/.zshrc" ]];then
     ZSH_FILE="$HOME/.zshrc"
 else
     ZSH_FILE="$HOME/.bashrc"
