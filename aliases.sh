@@ -14,6 +14,17 @@ function pfix {
     fi
 }
 
+# run codeception
+function codecept {
+    if [[ -f 'vendor/bin/codecept' ]]; then
+        php vendor/bin/codecept $@
+    fi
+
+    if [[ -f 'bin/codecept' ]]; then
+        php bin/codecept $@
+    fi
+}
+
 # find vagrant installed boxes
 function findbox {
     find ~/VirtualBox\ Vms -type f -name '*.vbox'
