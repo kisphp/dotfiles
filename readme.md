@@ -6,6 +6,25 @@
 curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash -
 ```
 
+### Aliases
+
+| Command | Details |
+| --- | --- |
+| pfix | run `php-cs-fixer fix v` command |
+| codecept | run codeception suite |
+| findbox | find virtual boxes in host machine |
+| vagSrc | search for VM path |
+| kvm | install kisphp virtual machine |
+| vagon | run `vagrant up && vagrant ssh` |
+| vagof | run `vagrant suspend` |
+| vagoff | run `vagrant suspend && exit` |
+| vagkill | run `vagrant destroy` |
+| vagkil | alias to `vagkill` |
+| apare | run `sudo /etc/init.d/apache2 restart` |
+| ngre | run `sudo /etc/init.d/nginx restart` |
+| myre | run `sudo /etc/init.d/mysql restart` |
+
+
 ### Update
 
 ```
