@@ -45,6 +45,17 @@ function kvm {
     git clone https://github.com/kisphp/symfony-vagrant.git $DIR
 }
 
+function autoUpdate {
+    CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
+    REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
+
+    if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
+        git pull
+    fi
+}
+
+autoUpdate
+
 # start vagrant box and connect
 alias vagon='vagrant up && vagrant ssh'
 
