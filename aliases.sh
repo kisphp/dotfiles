@@ -48,6 +48,9 @@ function kvm {
 function autoUpdate {
     CURRENT_DIRECTORY=`pwd`
     cd ~/.dotfiles
+    if [[ ! -f "custom.sh" ]]; then
+        cp custom.sh.dist custom.sh
+    fi
     CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
     REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
 
@@ -58,10 +61,6 @@ function autoUpdate {
 }
 
 autoUpdate
-
-if [[ ! -f "custom.sh" ]]; then
-  cp custom.sh.dist custom.sh
-fi
 
 # start vagrant box and connect
 alias vagon='vagrant up && vagrant ssh'
