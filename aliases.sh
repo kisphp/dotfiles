@@ -46,12 +46,15 @@ function kvm {
 }
 
 function autoUpdate {
+    CURRENT_DIRECTORY=`pwd`
+    cd ~/.dotfiles
     CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
     REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
 
     if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
         git pull
     fi
+    cd $CURRENT_DIRECTORY
 }
 
 autoUpdate
