@@ -56,6 +56,10 @@ function autoUpdate {
 
 autoUpdate
 
+if [[ ! -f "custom.sh" ]]; then
+  cp custom.sh.dist custom.sh
+fi
+
 # start vagrant box and connect
 alias vagon='vagrant up && vagrant ssh'
 
@@ -79,3 +83,5 @@ alias ngre='sudo /etc/init.d/nginx restart'
 
 # restart mysql
 alias myre='sudo /etc/init.d/mysql restart'
+
+. custom.sh
