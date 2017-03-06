@@ -86,4 +86,4 @@ alias ngre='sudo /etc/init.d/nginx restart'
 # restart mysql
 alias myre='sudo /etc/init.d/mysql restart'
 
-. custom.sh
+. ~/.dotfiles/custom.sh
