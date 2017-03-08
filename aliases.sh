@@ -48,7 +48,7 @@ function kvm {
 function autoUpdate {
     CURRENT_DIRECTORY=`pwd`
     cd ~/.dotfiles
-    if [[ ! -f "~/.dotfiles/custom.sh" ]]; then
+    if [[ ! -f ~/.dotfiles/custom.sh ]]; then
         cp ~/.dotfiles/custom.sh.dist ~/.dotfiles/custom.sh
     fi
     CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
