@@ -25,6 +25,22 @@ function codecept {
     fi
 }
 
+# quick git merge and push
+function makeup() {
+    GIT=$(which git)
+
+    if [[ -z "${1}" ]]; then
+        echo "You must provide a comment"
+        echo "Usage:"
+        echo "   ${0} my-comment"
+        echo " "
+    else
+        $GIT add .
+        $GIT commit -m "${1}"
+        $GIT push
+    fi
+}
+
 # find vagrant installed boxes
 function findbox {
     find ~/VirtualBox\ Vms -type f -name '*.vbox'

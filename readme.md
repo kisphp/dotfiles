@@ -23,6 +23,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | apare | run `sudo /etc/init.d/apache2 restart` |
 | ngre | run `sudo /etc/init.d/nginx restart` |
 | myre | run `sudo /etc/init.d/mysql restart` |
+| makeup "my commit message" | run `git add .`, `git commit -m 'provided message'`, `git push` |
 
 
 ### Update
