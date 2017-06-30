@@ -28,14 +28,29 @@ function codecept {
 # quick git merge and push
 function makeup() {
     GIT=$(which git)
+    ADD=1
+
+    while getopts ":n" arg;
+    do
+        case $arg in
+            n)
+               ADD=0
+               ;;
+        esac
+    done
 
     if [[ -z "${1}" ]]; then
         echo "You must provide a comment"
         echo "Usage:"
         echo "   ${0} my-comment"
         echo " "
+        echo "   or to skip git add"
+        echo "   ${0} -n my-comment"
+        echo " "
     else
-        $GIT add .
+        if [[ $ADD == 1 ]];then
+            $GIT add .
+        fi
         $GIT commit -m "${1}"
         $GIT push
     fi
