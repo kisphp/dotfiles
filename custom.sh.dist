@@ -2,5 +2,5 @@
 
 # use this file to add your custom shortcuts so you can update this repository easy
 
-alias ll='ls -la --color'
+alias ll='ls -la -color'
 
