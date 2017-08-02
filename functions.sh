@@ -88,6 +88,14 @@ function makeup() {
     GIT=$(which git)
     ADD=1
 
+    while getopts ":n:" opt; do
+        case $opt in
+            n)
+                ADD=0
+                ;;
+        esac
+    done
+
     if [[ -z "${1}" ]]; then
         echo "You must provide a comment"
         echo "Usage:"
@@ -100,17 +108,11 @@ function makeup() {
         return 0
     fi
 
-    if [[ $1 == "-n" ]];then
-        ADD=0
-        1=$2
-        2=''
+    if [[ "$ADD" == 1 ]];then
+        ${GIT} add .
     fi
-
-    if [[ $ADD == 1 ]];then
-        $(GIT) add .
-    fi
-    $(GIT) commit -m "${@}"
-    $(GIT) push
+    ${GIT} commit -m "${@}"
+    ${GIT} push
 }
 
 # find vagrant installed boxes
