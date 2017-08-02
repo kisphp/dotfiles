@@ -1,96 +1,9 @@
 #!/bin/bash
 
+. ~/.dotfiles/functions.sh
+
 alias p2='python2'
 alias p3='python3'
-
-# run php code fixer
-function pfix {
-    if [[ -f 'vendor/bin/php-cs-fixer' ]]; then
-        php vendor/bin/php-cs-fixer fix -v
-    fi
-
-    if [[ -f 'bin/php-cs-fixer' ]]; then
-        php bin/php-cs-fixer fix -v
-    fi
-}
-
-# run codeception
-function codecept {
-    if [[ -f 'vendor/bin/codecept' ]]; then
-        php vendor/bin/codecept $@
-    fi
-
-    if [[ -f 'bin/codecept' ]]; then
-        php bin/codecept $@
-    fi
-}
-
-# quick git merge and push
-function makeup() {
-    GIT=$(which git)
-    ADD=1
-
-    if [[ -z "${1}" ]]; then
-        echo "You must provide a comment"
-        echo "Usage:"
-        echo "   ${0} my-comment"
-        echo " "
-        echo "   or to skip git add"
-        echo "   ${0} -n my-comment"
-        echo " "
-
-        return 0
-    fi
-
-    if [[ $1 == "-n" ]];then
-        ADD=0
-        1=$2
-        2=''
-    fi
-
-    if [[ $ADD == 1 ]];then
-        $(GIT) add .
-    fi
-    $(GIT) commit -m "${@}"
-    $(GIT) push
-}
-
-# find vagrant installed boxes
-function findbox {
-    find ~/VirtualBox\ Vms -type f -name '*.vbox'
-    find ~/VirtualBox_Vms -type f -name '*.vbox'
-}
-
-# find vagrant box location
-function vagSrc {
-    grep -Hrni 'SharedFolder name="vagrant"' $1
-}
-
-function kvm {
-    if [[ -z $1 ]]; then
-        DIR='_vm'
-    else
-        DIR=$1
-    fi
-    git clone https://github.com/kisphp/symfony-vagrant.git $DIR
-}
-
-function autoUpdate {
-    CURRENT_DIRECTORY=`pwd`
-    cd ~/.dotfiles
-    if [[ ! -f ~/.dotfiles/custom.sh ]]; then
-        cp ~/.dotfiles/custom.sh.dist ~/.dotfiles/custom.sh
-    fi
-    CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
-    REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
-
-    if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
-        git pull
-    fi
-    cd $CURRENT_DIRECTORY
-}
-
-autoUpdate
 
 # start vagrant box and connect
 alias vagon='vagrant up && vagrant ssh'
@@ -115,5 +28,9 @@ alias ngre='sudo /etc/init.d/nginx restart'
 
 # restart mysql
 alias myre='sudo /etc/init.d/mysql restart'
+
+if [[ "$1" != "-u" ]]; then
+    self_update
+fi
 
 . ~/.dotfiles/custom.sh
