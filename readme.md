@@ -30,7 +30,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 > ```bash
 > makeup make more changes in branch
 > ```
-> the commit message will be: *make more changes in branch*
+> the commit message will be: **make more changes in branch**
 >
 
 ### Update
