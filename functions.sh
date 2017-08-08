@@ -56,6 +56,7 @@ function codecept {
 
 # quick git merge and push
 function makeup() {
+    set -x
     GIT=$(which git)
     ADD=1
 
@@ -84,8 +85,9 @@ function makeup() {
     if [[ "$ADD" == 1 ]];then
         ${GIT} add .
     fi
-    ${GIT} commit -m "${@}"
+    ${GIT} commit -m "'${*}'"
     ${GIT} push
+    set +x
 }
 
 # find vagrant installed boxes
