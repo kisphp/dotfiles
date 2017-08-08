@@ -25,6 +25,13 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | myre | run `sudo /etc/init.d/mysql restart` |
 | makeup "my commit message" | run `git add .`, `git commit -m 'provided message'`, `git push` |
 
+> You may run `makeup` function and pass parameters without quotes:
+>
+> ```bash
+> makeup make more changes in branch
+> ```
+> the commit message will be: *make more changes in branch*
+>
 
 ### Update
 
