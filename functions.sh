@@ -84,7 +84,7 @@ function makeup() {
     if [[ "$ADD" == 1 ]];then
         ${GIT} add .
     fi
-    ${GIT} commit -m "'${@}'"
+    ${GIT} commit -m "${@}"
     ${GIT} push
 }
 
