@@ -1,28 +1,38 @@
 #!/usr/bin/env bash
 
-. kisphp-dotfiles.sh
+ERROR="\033[41m" # background red
+GREEN="\033[42m" # background green
+INFO="\033[43m" # yellow text
+BACKGROUND="\033[46m" # background blue
+BLACKTEXT="\033[30m"
+COLOR="\033[39m" # text white
+NC="\033[0m" # reset
 
-function main () {
-    GIT=`which git`
+GIT=`which git`
+
+# Path to your oh-my-zsh installation.
+DOTFILES=$HOME/.dotfiles
+
+ALIASES_SCRIPT="$DOTFILES/kisphp-dotfiles.sh"
+
+function _install () {
 
     if [[ -f "$HOME/.zshrc" ]];then
         ZSH_FILE="$HOME/.zshrc"
-        infoText "install on ${ZSH_FILE}"
+        echo "${INFO}Install on ${ZSH_FILE}${NC}"
     else
         ZSH_FILE="$HOME/.bashrc"
-        infoText "install on ${ZSH_FILE}"
+        echo "${INFO}Install on ${ZSH_FILE}${NC}"
     fi
 
-    ALIASES_SCRIPT="$DOTFILES/aliases.sh"
-
     if [[ ! -d "${DOTFILES}" ]];then
-        infoText "Cloning Dotfiles..."
+        echo "${INFO}Cloning Dotfiles...${NC}"
         hash git >/dev/null 2>&1 || {
-            errorText "Error: git is not installed"
+            echo "${ERROR}Error: git is not installed${NC}"
             exit 1
         }
 
-        $GIT clone --depth=1 https://github.com/kisphp/dotfiles.git "${DOTFILES}"
+        $GIT clone --depth=1 https://github.com/kisphp/dotfiles.git "~/.dotfiles"
     fi
 
     if [[ ! `cat ${ZSH_FILE} | grep "${ALIASES_SCRIPT}"` ]]; then
@@ -30,13 +40,13 @@ function main () {
         echo ". ~/${ALIASES_SCRIPT}" >> $ZSH_FILE
     fi
 
-    echo ' '
+    echo "${GREEN}"
     echo '-----Installed-----'
     echo ' '
     echo "!!!! Don't forget to run:"
     echo ' '
     echo "source ${ZSH_FILE}"
-    echo ' '
+    echo "${NC}"
 }
 
-main
+_install

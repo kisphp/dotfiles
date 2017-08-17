@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-# use this file to add your custom shortcuts so you can update this repository easy
+# uncomment next line to enable debug mode
+#KP_DEBUG=1
 
+# uncomment next line to enable logs
+#KP_LOGS=1
+
+# use this file to add your custom shortcuts so you can update this repository easy
 alias ll='ls -la -color'
 
 function debug {

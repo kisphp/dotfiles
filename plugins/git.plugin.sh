@@ -32,12 +32,15 @@ function makeup() {
     fi
     ${GIT} commit -m "${*}"
     ${GIT} push
+    log "[Git] committed message '${*}' and pushed"
 }
 
 function cln {
     GIT=`which git`
     REPOSITORY=$1
     shift
+
+    log "[Info] Cloned ${REPOSITORY} $*"
 
     $GIT clone "https://github.com/${REPOSITORY}.git" $*
 }

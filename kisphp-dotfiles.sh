@@ -1,6 +1,7 @@
 #!/bin/bash
 
 KP_DEBUG=0
+KP_LOGS=0
 if [ "${KP_DEBUG}" -eq 1 ];then
     set -x
 fi
@@ -9,6 +10,7 @@ fi
 export DOTFILES=$HOME/.dotfiles
 
 # load tools libraries
+. "${DOTFILES}/tools/logger.sh"
 . "${DOTFILES}/tools/print.sh"
 . "${DOTFILES}/tools/validations.sh"
 . "${DOTFILES}/tools/upgrade.sh"

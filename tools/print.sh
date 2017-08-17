@@ -21,24 +21,29 @@ else
 fi
 
 function labelText {
+    log "[Label] ${1}"
     echo -e "\n${BACKGROUND}${BLACKTEXT} ${1} ${NC}\n"
 }
 
 function errorText {
+    log "[Error] ${1}"
     echo -e "\n${ERROR}${COLOR} ${1} ${NC}\n"
 }
 
 function infoText {
+    log "[Info] ${1}"
     echo -e "\n${INFO}${BLACKTEXT} ${1} ${NC}\n"
 }
 
 function successText {
+    log "[Success] ${1}"
     echo -e "\n${GREEN}${BLACKTEXT} ${1} ${NC}\n"
 }
 
 function writeErrorMessage {
     if [[ $? != 0 ]]; then
         errorText "Error: ${1}"
+        log "[Error] [== Exit ==]"
         exit 1
     fi
 }
