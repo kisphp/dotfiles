@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+. kisphp-dotfiles.sh
+
 zmodload zsh/datetime
 
 function _current_epoch() {

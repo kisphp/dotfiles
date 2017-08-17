@@ -3,9 +3,10 @@
 # Path to your oh-my-zsh installation.
 export DOTFILES=$HOME/.dotfiles
 
-. "$DOTFILES/tools/print.sh"
+# load tools libraries
+. "${DOTFILES}/tools/print.sh"
 
+# load plugins
 
-
-
-. "$DOTFILES/custom.sh"
+# load custom aliases
+. "${DOTFILES}/custom.sh"
