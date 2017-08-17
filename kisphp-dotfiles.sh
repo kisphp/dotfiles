@@ -7,6 +7,9 @@ export DOTFILES=$HOME/.dotfiles
 . "${DOTFILES}/tools/print.sh"
 
 # load plugins
+for PLUGIN in $(find $DOTFILES/plugins -type f -name '*.plugin.sh'); do
+    . $PLUGIN
+done
 
 # load custom aliases
 . "${DOTFILES}/custom.sh"
