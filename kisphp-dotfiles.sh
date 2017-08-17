@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# default values for configuration elements
 KP_DEBUG=0
 KP_LOGS=0
+
 if [ "${KP_DEBUG}" -eq 1 ];then
     set -x
 fi
@@ -21,6 +23,10 @@ for PLUGIN in $(find $DOTFILES/plugins -type f -name '*.plugin.sh'); do
 done
 
 # load custom aliases
+if [[ ! -f ~/.dotfiles/custom.sh ]]; then
+    infoText "Write custom.sh file"
+    cp ~/.dotfiles/custom.sh.dist ~/.dotfiles/custom.sh
+fi
 . "${DOTFILES}/custom.sh"
 
 if [ "${KP_DEBUG}" -eq 1 ];then
