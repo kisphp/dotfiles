@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+. $DOTFILES/print.sh
+
 GIT=`which git`
 DIR='.dotfiles'
 
@@ -9,10 +11,14 @@ else
     ZSH_FILE="$HOME/.bashrc"
 fi
 
-ALIASES_SCRIPT='.dotfiles/aliases.sh'
+ALIASES_SCRIPT="$DOTFILES/aliases.sh"
 
 if [[ ! -d "$HOME/$DIR" ]];then
-    echo "--- Clone repository ---"
+    printf "${BLUE}Cloning Oh My Zsh...${NORMAL}\n"
+    hash git >/dev/null 2>&1 || {
+        echo "Error: git is not installed"
+        exit 1
+    }
 
     $GIT clone https://github.com/kisphp/dotfiles.git "$HOME/$DIR"
 fi
