@@ -49,7 +49,7 @@ function _install () {
 
     if [[ ! `cat ${ZSH_FILE} | grep "${ALIASES_SCRIPT}"` ]]; then
         echo "--register aliases--"
-        echo ". ~/${ALIASES_SCRIPT}" >> $ZSH_FILE
+        echo ". ${ALIASES_SCRIPT}" >> $ZSH_FILE
     fi
 
     echo "${GREEN}"
