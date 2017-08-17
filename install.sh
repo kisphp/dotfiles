@@ -32,7 +32,7 @@ function _install () {
             exit 1
         }
 
-        $GIT clone --depth=1 https://github.com/kisphp/dotfiles.git "~/.dotfiles"
+        $GIT clone --depth=1 https://github.com/kisphp/dotfiles.git "${DOTFILES}"
     fi
 
     if [[ ! `cat ${ZSH_FILE} | grep "${ALIASES_SCRIPT}"` ]]; then
