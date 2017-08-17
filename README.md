@@ -64,6 +64,7 @@ source ~/.zshrc
 | ngre | run `sudo /etc/init.d/nginx restart` |
 | myre | run `sudo /etc/init.d/mysql restart` |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
+| cln | clone a git repository `cln symfony/symfony_standard directory_name` (directory_name is optional) |
 
 ### Other aliases
 

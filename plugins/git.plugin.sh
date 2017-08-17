@@ -34,3 +34,10 @@ function makeup() {
     ${GIT} push
 }
 
+function cln {
+    GIT=`which git`
+    REPOSITORY=$1
+    shift
+
+    $GIT clone "https://github.com/${REPOSITORY}.git" $*
+}
