@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#
+# THIS FILE IS DEPRECATED AND MUST BE REMOVED
+#
+
 . ~/.dotfiles/print.sh
 
 zmodload zsh/datetime

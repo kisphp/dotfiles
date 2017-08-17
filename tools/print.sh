@@ -2,10 +2,7 @@
 
 # Use colors, but only if connected to a terminal, and that terminal
 # supports them.
-if which tput >/dev/null 2>&1; then
-  ncolors=$(tput colors)
-fi
-if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+if [ -t 1 ]; then
     ERROR="\033[41m" # background red
     GREEN="\033[42m" # background green
     INFO="\033[43m" # yellow text
@@ -22,10 +19,6 @@ else
     COLOR=""
     NC=""
 fi
-
-# Only enable exit-on-error after the non-critical colorization stuff,
-# which may fail on systems lacking tput or terminfo
-set -e
 
 function labelText {
     echo -e "\n${BACKGROUND}${BLACKTEXT} ${1} ${NC}\n"
@@ -45,7 +38,7 @@ function successText {
 
 function writeErrorMessage {
     if [[ $? != 0 ]]; then
-        errorText "${1}"
+        errorText "Error: ${1}"
         exit 1
     fi
 }

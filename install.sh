@@ -2,13 +2,15 @@
 
 . kisphp-dotfiles.sh
 
-main () {
+function main () {
     GIT=`which git`
 
     if [[ -f "$HOME/.zshrc" ]];then
         ZSH_FILE="$HOME/.zshrc"
+        infoText "install on ${ZSH_FILE}"
     else
         ZSH_FILE="$HOME/.bashrc"
+        infoText "install on ${ZSH_FILE}"
     fi
 
     ALIASES_SCRIPT="$DOTFILES/aliases.sh"
@@ -16,7 +18,7 @@ main () {
     if [[ ! -d "${DOTFILES}" ]];then
         infoText "Cloning Dotfiles..."
         hash git >/dev/null 2>&1 || {
-            echo "Error: git is not installed"
+            errorText "Error: git is not installed"
             exit 1
         }
 
@@ -37,4 +39,4 @@ main () {
     echo ' '
 }
 
-main()
+main

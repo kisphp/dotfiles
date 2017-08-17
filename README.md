@@ -8,7 +8,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 
 ### Update
 
-> The tool will try to auto update
+> The tool will auto update by itself
 
 ```
 cd ~/.dotfiles
@@ -63,6 +63,7 @@ source ~/.zshrc
 | apare | run `sudo /etc/init.d/apache2 restart` |
 | ngre | run `sudo /etc/init.d/nginx restart` |
 | myre | run `sudo /etc/init.d/mysql restart` |
+| phpre | run `sudo /etc/init.d/php7-fpm restart` |
 
 ### Other aliases
 
