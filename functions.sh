@@ -6,7 +6,7 @@ zmodload zsh/datetime
 
 function reload_dotfiles {
     infoText "Reloading dotfiles"
-    source ./aliases.sh -u
+    source kisphp-dotfiles.sh -u
 }
 
 function self_update {
