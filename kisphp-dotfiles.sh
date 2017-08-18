@@ -14,7 +14,7 @@ export DOTFILES=$HOME/.dotfiles
 
 # load custom aliases
 if [[ ! -f ~/.dotfiles/custom.sh ]]; then
-    infoText "Write custom.sh file"
+    echo "Write custom.sh file"
     cp ~/.dotfiles/custom.sh.dist ~/.dotfiles/custom.sh
 fi
 . "${DOTFILES}/custom.sh"
