@@ -39,6 +39,10 @@ function _upgrade_dotfiles {
 function _should_upgrade {
     NEXT_UPDATE=$(cat ${DOTFILES}/logs/.dotfiles_last_update)
 
+    if [[ ! -f "${DOTFILES}/logs/.dotfiles_last_update" ]]; then
+        _upgrade_dotfiles_timestamp
+    fi
+
     if [[ $NEXT_UPDATE -lt `date +%s` ]]; then
         echo "${INFO}${BLACKTEXT} [Kisphp Dotfiles] Would you like to check for updates ? [Y|n] ${NC}"
         read line
