@@ -23,6 +23,8 @@ function _upgrade_dotfiles {
     if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
         infoText "Updating Dotfiles repository ..."
         git pull --rebase origin master
+    else
+        infoText "Kisphp dotfiles is already latest version"
     fi
 
     # update timestamp
