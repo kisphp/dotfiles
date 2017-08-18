@@ -8,6 +8,7 @@ function _upgrade_dotfiles_timestamp {
 }
 
 function _upgrade_dotfiles {
+    log "[Info] Upgrading dotfiles request"
     CURRENT_DIRECTORY=`pwd`
     cd "${DOTFILES}"
 
@@ -19,6 +20,8 @@ function _upgrade_dotfiles {
     git fetch
     CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
     REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
+
+    log "[Info] Git local: ${CURRENT_COMMIT_HASH} - Git remote: ${REMOTE_COMMIT_HASH}"
 
     if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
         infoText "Updating Dotfiles repository ..."
