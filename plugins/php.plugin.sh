@@ -22,4 +22,6 @@ function codecept {
     fi
 }
 
-
+function debug {
+    XDEBUG_CONFIG="remote_host=0.0.0.0" PHP_IDE_CONFIG="serverName=localhost"
+}

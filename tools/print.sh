@@ -44,7 +44,7 @@ function errorText {
 
 function infoText {
     log "[Info] ${1}"
-    echo -e "\n${INFO} ${1} ${NC}\n"
+    echo "\n${INFO} ${1} ${NC}\n"
 }
 
 function successText {

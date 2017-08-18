@@ -2,6 +2,6 @@
 
 function log {
     if [ "${KP_LOGS}" -gt 0 ];then
-        echo $* >> "${DOTFILES}/logs/cmd.log"
+        echo "${1}" >> "${DOTFILES}/logs/cmd.log"
     fi
 }
