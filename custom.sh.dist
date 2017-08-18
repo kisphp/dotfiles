@@ -6,6 +6,9 @@
 # uncomment next line to enable logs
 #KP_LOGS=1
 
+# uncomment next line to disable text coloring
+#KP_COLORS=0
+
 # use this file to add your custom shortcuts so you can update this repository easy
 alias ll='ls -la -color'
 

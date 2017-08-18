@@ -30,7 +30,7 @@ cd ~
 git clone https://github.com/kisphp/dotfiles.git .dotfiles
 
 # include dotfiles script in bash file
-echo ". ~/.dotfiles/aliases.sh" >> ~/.bashrc
+echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.bashrc
 
 # reinitialize aliases
 source ~/.bashrc
@@ -39,7 +39,7 @@ source ~/.bashrc
 ### If you have oh-my-zsh installed
 ```
 # or if you have ohmyzsh installed
-echo ". ~/.dotfiles/aliases.sh" >> ~/.zshrc
+echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.zshrc
 
 # reinitialize aliases
 source ~/.zshrc
