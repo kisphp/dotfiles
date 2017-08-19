@@ -48,13 +48,10 @@ source ~/.zshrc
 
 ### Aliases
 
-- [Debug](docs/debug.md) (php)
-- [Makeup](docs/makeup.md) (git)
-
-### Other aliases
-
 | Command | Details |
 | --- | --- |
+| [Debug](docs/debug.md) | configure xdebug parameters for php scripts |
+| [Makeup](docs/makeup.md) | faster commit and push to git repositorygst |
 | pfix | run `php-cs-fixer fix v` command |
 | codecept | run codeception suite |
 | findbox | find virtual boxes in host machine |
