@@ -23,38 +23,30 @@ function codecept {
 }
 
 function debug {
-
-    echo "-enter function-"
-
     show_manual debug $1 && return 0
 
     while getopts ":h:n:" opt; do
         case $opt in
             h)
                 debug_host=${OPTARG}
-                echo "set debug_host = ${debug_host}"
+                log "set debug_host = ${debug_host}" debug
                 ;;
             n)
                 debug_name=${OPTARG}
-                echo "set debug_name = ${debug_name}"
+                log "set debug_name = ${debug_name}" debug
                 ;;
         esac
     done
 
     if [ -z "${debug_name}" ];then
         debug_name='localhost'
-        echo "set debug_name = ${debug_name}"
+        log "set debug_name = ${debug_name}" debug
     fi
     if [ -z "${debug_host}" ];then
         debug_host='0.0.0.0'
-        echo "set debug_host = ${debug_host}"
+        log "set debug_host = ${debug_host}" debug
     fi
 
     XDEBUG_CONFIG="remote_host=${debug_host}"
     PHP_IDE_CONFIG="serverName=${debug_name}"
-
-    echo $XDEBUG_CONFIG
-    echo $PHP_IDE_CONFIG
-
-    echo "-exit function-"
 }

@@ -4,7 +4,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # load config file
-if [[ ! -f $HOME/.kisphp-dotfiles ]]; then
+if [[ ! -f $HOME/.dotfiles.cfg ]]; then
     cp "${DOTFILES}/.dotfiles.cfg.dist" "${HOME}/.dotfiles.cfg"
 fi
 . "${HOME}/.dotfiles.cfg"

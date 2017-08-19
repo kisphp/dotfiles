@@ -9,7 +9,6 @@
 ### Usage
 
 ```bash
- 
 debug -h 127.0.0.1 # default is 0.0.0.0
  
 debug -n my_host # default is localhost
@@ -20,4 +19,3 @@ debug # the previous parameters or default ones will be persistent
 ```
 
 > Is necessary only once to run it with parameters. Pass parameters only if you want to change them
-

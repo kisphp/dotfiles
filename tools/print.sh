@@ -33,22 +33,22 @@ else
 fi
 
 function labelText {
-    log "[Label] ${1}"
+    log "${1}" Label
     echo -e "\n${LABEL} ${1} ${NC}\n"
 }
 
 function errorText {
-    log "[Error] ${1}"
+    log "${1}" Error
     echo -e "\n${ERROR} ${1} ${NC}\n"
 }
 
 function infoText {
-    log "[Info] ${1}"
-    echo "\n${INFO} ${1} ${NC}\n"
+    log "${1}" Info
+    echo -e "\n${INFO} ${1} ${NC}\n"
 }
 
 function successText {
-    log "[Success] ${1}"
+    log "${1}" Success
     echo -e "\n${SUCCESS} ${1} ${NC}\n"
 }
 
@@ -60,6 +60,7 @@ function writeErrorMessage {
     fi
 }
 
+# this function is only for debug print messages only
 function _debug_print {
     labelText "this is label text"
     errorText "this is error text"

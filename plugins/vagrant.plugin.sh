@@ -33,6 +33,6 @@ function kvm {
     else
         DIR=$1
     fi
-    log "[Git] cloned KVM into ${DIR}"
+    log "cloned KVM into ${DIR}" Git
     git clone https://github.com/kisphp/symfony-vagrant.git $DIR
 }

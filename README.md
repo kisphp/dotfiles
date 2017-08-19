@@ -49,6 +49,9 @@ source ~/.zshrc
 ### Aliases
 
 [Debug](docs/debug.md)
+[Makeup](docs/makeup.md)
+
+### Other aliases
 
 | Command | Details |
 | --- | --- |
@@ -67,32 +70,3 @@ source ~/.zshrc
 | myre | run `sudo /etc/init.d/mysql restart` |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | cln | clone a git repository `cln symfony/symfony_standard directory_name` (directory_name is optional) |
-
-### Other aliases
-
-#### `makeup`
-
-Syntax:
-```bash
-makeup [-n] "commit message"
-```
-
-Usage:
-```bash
-makeup "my commit message"
-
-# quotes are optional
-makeup my commit message
-
-# if you want to skip "git add ."
-makeup -n my commit message
-```
-
-> You may run `makeup` function and pass parameters without quotes:
->
-> ```bash
-> makeup make more changes in branch
-> ```
-> the commit message will be: **make more changes in branch**
->
-

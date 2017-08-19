@@ -4,16 +4,18 @@ GIT=$(which git)
 
 # quick git merge and push
 function makeup() {
+    show_manual makeup $1 && return 0
+
     ADD=1
 
     if [[ -z "${1}" ]]; then
-        echo "You must provide a comment"
-        echo "Usage:"
+        echo "${FG_RED}You must provide a comment${NC}"
+        echo "${FG_YELLOW}Usage:"
         echo "   ${0} my-comment"
         echo " "
         echo "   or to skip git add"
         echo "   ${0} -n my-comment"
-        echo " "
+        echo "${NC}"
 
         return 0
     fi
@@ -33,14 +35,14 @@ function makeup() {
     fi
     ${GIT} commit -m "${*}"
     ${GIT} push
-    log "[Git] committed message '${*}' and pushed"
+    log "committed message '${*}' and pushed" Git
 }
 
 function cln {
     REPOSITORY=$1
     shift
 
-    log "[Info] Cloned ${REPOSITORY} $*"
+    log "Cloned ${REPOSITORY} $*"
 
     $GIT clone "https://github.com/${REPOSITORY}.git" $*
 }
