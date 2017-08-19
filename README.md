@@ -48,8 +48,8 @@ source ~/.zshrc
 
 ### Aliases
 
-[Debug](docs/debug.md)
-[Makeup](docs/makeup.md)
+- [Debug](docs/debug.md)
+- [Makeup](docs/makeup.md)
 
 ### Other aliases
 
