@@ -48,8 +48,8 @@ source ~/.zshrc
 
 ### Aliases
 
-- [Debug](docs/debug.md)
-- [Makeup](docs/makeup.md)
+- [Debug](docs/debug.md) (php)
+- [Makeup](docs/makeup.md) (git)
 
 ### Other aliases
 
