@@ -1,13 +1,31 @@
 #!/usr/bin/env bash
 
 # restart apache (ubuntu/debian)
-alias apare='sudo /etc/init.d/apache2 restart'
+function apare {
+    log "Restart" "Apache2"
+    sudo /etc/init.d/apache2 restart
+}
 
 # restart nginx
-alias ngre='sudo /etc/init.d/nginx restart'
+function ngre {
+    log "Restart" "Nginx"
+    sudo /etc/init.d/nginx restart
+}
 
 # restart mysql
-alias myre='sudo /etc/init.d/mysql restart'
+function myre {
+    log "Restart" "MySQL"
+    sudo /etc/init.d/mysql restart
+}
 
 # restart phpfpm
-alias phpre='sudo /etc/init.d/php7-fpm restart'
+function phpre {
+    if [[ -f '/etc/init.d/php7-fpm' ]]; then
+        log "Restart version 7" "FPM"
+        sudo /etc/init.d/php7-fpm restart
+    fi
+    if [[ -f '/etc/init.d/php5-fpm' ]]; then
+        log "Restart version 5" "FPM"
+        sudo /etc/init.d/php5-fpm restart
+    fi
+}

@@ -9,6 +9,7 @@ function makeup() {
     ADD=1
 
     if [[ -z "${1}" ]]; then
+        log "makeup without parameters" Error
         echo "${FG_RED}You must provide a comment${NC}"
         echo "${FG_YELLOW}Usage:"
         echo "   ${0} my-comment"
@@ -42,7 +43,7 @@ function cln {
     REPOSITORY=$1
     shift
 
-    log "Cloned ${REPOSITORY} $*"
+    log "Cloned ${REPOSITORY} $*" Git
 
     $GIT clone "https://github.com/${REPOSITORY}.git" $*
 }
