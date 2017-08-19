@@ -48,6 +48,8 @@ source ~/.zshrc
 
 ### Aliases
 
+[Debug](docs/debug.md)
+
 | Command | Details |
 | --- | --- |
 | pfix | run `php-cs-fixer fix v` command |

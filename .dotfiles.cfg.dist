@@ -1,0 +1,5 @@
+
+# default values for configuration elements
+KP_DEBUG=0 # debug mode disabled
+KP_LOGS=0 # logs disabled
+KP_COLORS=1 # colored text enabled
