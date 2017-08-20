@@ -47,6 +47,6 @@ function debug {
         dotfiles_log "set debug_host = ${debug_host}" debug
     fi
 
-    XDEBUG_CONFIG="remote_host=${debug_host}"
-    PHP_IDE_CONFIG="serverName=${debug_name}"
+    export XDEBUG_CONFIG="remote_host=${debug_host}"
+    export PHP_IDE_CONFIG="serverName=${debug_name}"
 }
