@@ -2,14 +2,14 @@
 
 function _upgrade_dotfiles_timestamp {
     # next five days
-    TIMESTAMP=`echo $(date +%s) + 432000 | bc`
+    TIMESTAMP=$(echo $(date +%s) + $KP_UPGRADE_DAYS | bc)
 
     echo "${TIMESTAMP}" > "${DOTFILES}/logs/.dotfiles_last_update"
 }
 
 function _upgrade_dotfiles {
-    log "[Info] Upgrading dotfiles request"
-    CURRENT_DIRECTORY=`pwd`
+    dotfiles_log "Upgrading dotfiles request" "Upgrade dotfiles"
+    CURRENT_DIRECTORY=$(pwd)
     cd "${DOTFILES}"
 
     if [[ ! -f "${DOTFILES}/custom.sh" ]]; then
@@ -18,10 +18,10 @@ function _upgrade_dotfiles {
     fi
 
     git fetch
-    CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
-    REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
+    CURRENT_COMMIT_HASH=$(git rev-parse --verify HEAD)
+    REMOTE_COMMIT_HASH=$(git rev-parse --verify origin/master)
 
-    log "[Info] Git local: ${CURRENT_COMMIT_HASH} - Git remote: ${REMOTE_COMMIT_HASH}"
+    dotfiles_log "Git local: ${CURRENT_COMMIT_HASH} - Git remote: ${REMOTE_COMMIT_HASH}" "Upgrade dotfiles"
 
     if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
         infoText "Updating Dotfiles repository ..."
@@ -37,13 +37,18 @@ function _upgrade_dotfiles {
 }
 
 function _should_upgrade {
+    if [[ $KP_UPGRADE_DAYS -eq 0 ]];then
+        dotfiles_log "upgrade disabled" "Dotfiles"
+        return 0
+    fi
+
     if [[ ! -f "${DOTFILES}/logs/.dotfiles_last_update" ]]; then
         _upgrade_dotfiles
         _upgrade_dotfiles_timestamp
     fi
 
     NEXT_UPDATE=$(cat ${DOTFILES}/logs/.dotfiles_last_update)
-    if [[ $NEXT_UPDATE -lt `date +%s` ]]; then
+    if [[ $NEXT_UPDATE -lt $(date +%s) ]]; then
         echo "${INFO}${BLACKTEXT} [Kisphp Dotfiles] Would you like to check for updates ? [Y|n] ${NC}"
         read line
         if [[ "$line" == Y* ]] || [[ "$line" == y* ]] || [ -z "$line" ]; then

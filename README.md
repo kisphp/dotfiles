@@ -1,5 +1,7 @@
 # KISPHP Dotfiles
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0c226a27d3a441f8a138d42aacd882ea)](https://www.codacy.com/app/mariusbogdan83/dotfiles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kisphp/dotfiles&amp;utm_campaign=Badge_Grade)
+
 ### Install
 
 ```
@@ -36,7 +38,7 @@ echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### If you have oh-my-zsh installed
+### If you have oh-my-zsh installed or use zsh as default shell
 ```
 # or if you have ohmyzsh installed
 echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.zshrc
@@ -45,11 +47,12 @@ echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.zshrc
 source ~/.zshrc
 ```
 
-
 ### Aliases
 
 | Command | Details |
 | --- | --- |
+| [Debug](docs/debug.md) | configure xdebug parameters for php scripts |
+| [Makeup](docs/makeup.md) | faster commit and push to git repositorygst |
 | pfix | run `php-cs-fixer fix v` command |
 | codecept | run codeception suite |
 | findbox | find virtual boxes in host machine |
@@ -64,33 +67,14 @@ source ~/.zshrc
 | ngre | run `sudo /etc/init.d/nginx restart` |
 | myre | run `sudo /etc/init.d/mysql restart` |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
-| cln | clone a git repository `cln symfony/symfony_standard directory_name` (directory_name is optional) |
+| [cln](docs/cln.md) | clone a repository from Github |
 
-### Other aliases
+### Helpers
 
-#### `makeup`
+Git Config
+ 
+`scripts/git-config.sh` setup git global configuration [git-config](scripts/git-config.sh)
+ 
+Vim Config
 
-Syntax:
-```bash
-makeup [-n] "commit message"
-```
-
-Usage:
-```bash
-makeup "my commit message"
-
-# quotes are optional
-makeup my commit message
-
-# if you want to skip "git add ."
-makeup -n my commit message
-```
-
-> You may run `makeup` function and pass parameters without quotes:
->
-> ```bash
-> makeup make more changes in branch
-> ```
-> the commit message will be: **make more changes in branch**
->
-
+`scripts/vim-config.sh` setup vim configurations for user [vim-config](scripts/vim-config.sh)

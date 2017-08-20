@@ -1,24 +1,42 @@
 #!/usr/bin/env bash
 
 # start vagrant box and connect
-alias vagon='vagrant up && vagrant ssh'
+function vagon {
+    dotfiles_log "vagrant up && vagrant ssh: ${PWD}" "Vagrant"
+    vagrant up && vagrant ssh
+}
 
 # suspend a vagrant box
-alias vagof='vagrant suspend'
+function vagof {
+    dotfiles_log "suspend VM: ${PWD}" "Vagrant"
+    vagrant suspend
+}
 
 # suspend a vagrant box and close terminal window/tab
-alias vagoff='vagrant suspend && exit'
+function vagoff {
+    dotfiles_log "suspend VM and exit: ${PWD}" "Vagrant"
+    vagrant suspend && exit
+}
 
 # destroy vagrant box
-alias vagkill='vagrant destroy'
+function vagkill {
+    dotfiles_log "Destroy VM ${PWD}" "Vagrant"
+    vagrant destroy
+}
 
 # destory vagrant box alias
 alias vagkil='vagkill'
 
 # find vagrant installed boxes
 function findbox {
-    find ~/VirtualBox\ Vms -type f -name '*.vbox'
-    find ~/VirtualBox_Vms -type f -name '*.vbox'
+    if [[ -d "${HOME}/VirtualBox Vms" ]]; then
+        dotfiles_log "Search: ${HOME}/VirtualBox\ Vms" "VirtualBox img search"
+        find "${HOME}/VirtualBox Vms" -type f -name '*.vbox'
+    fi
+    if [[ -d "${HOME}/VirtualBox_Vms" ]]; then
+        dotfiles_log "Search: ${HOME}/VirtualBox_Vms" "VirtualBox img search"
+        find $HOME/VirtualBox_Vms -type f -name '*.vbox'
+    fi
 }
 
 # find vagrant box location
@@ -33,6 +51,6 @@ function kvm {
     else
         DIR=$1
     fi
-    log "[Git] cloned KVM into ${DIR}"
+    dotfiles_log "cloned KVM into ${DIR}" Git
     git clone https://github.com/kisphp/symfony-vagrant.git $DIR
 }

@@ -1,0 +1,14 @@
+# default values for configuration elements
+
+# debug mode disabled
+KP_DEBUG=0
+
+# logs disabled
+KP_LOGS=0
+
+# colored text enabled
+KP_COLORS=1
+
+# how often should the application check for new upgrades
+# if you want to disable the updates, then set the value to 0
+KP_UPGRADE_DAYS=432000 # 5 days in seconds
