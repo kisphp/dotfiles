@@ -7,9 +7,7 @@ FG_BLACK="\033[30m"
 
 # Background colors
 BG_RED="\033[41m"
-BG_GREEN="\033[42m"
 BG_YELLOW="\033[43m"
-BG_BLUE="\033[44m"
 
 # Use colors, but only if connected to a terminal, and that terminal
 # supports them.
