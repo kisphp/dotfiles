@@ -7,7 +7,7 @@ function dotfiles_log {
         if [[ -z "${label}" ]];then
             label='Info'
         fi
-        now=`date +%Y-%m-%d\ %H:%M:%S`
+        now=$(date +%Y-%m-%d\ %H:%M:%S)
         echo "${now} [${label}] ${message}" >> "${DOTFILES}/logs/cmd.log"
     fi
 }

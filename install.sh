@@ -32,7 +32,7 @@ else
     NC=""
 fi
 
-GIT=`which git`
+GIT=$(which git)
 
 # Path to your oh-my-zsh installation.
 DOTFILES=$HOME/.dotfiles
@@ -59,7 +59,7 @@ function _install () {
         $GIT clone --depth=1 https://github.com/kisphp/dotfiles.git "${DOTFILES}"
     fi
 
-    if [[ ! `cat ${ZSH_FILE} | grep "${ALIASES_SCRIPT}"` ]]; then
+    if [[ ! $(cat ${ZSH_FILE} | grep "${ALIASES_SCRIPT}") ]]; then
         echo "--register aliases--"
         echo ". ${ALIASES_SCRIPT}" >> $ZSH_FILE
     fi

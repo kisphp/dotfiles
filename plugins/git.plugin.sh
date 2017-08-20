@@ -73,7 +73,7 @@ function git_clean_repo {
 
     # Now the same, but including remote branches.
     dotfiles_log "List all branches that were merged + remote" "Git clean"
-    MERGED_ON_REMOTE=`$GIT branch -r --merged origin/master | sed 's/ *origin\///' | grep -v 'master$'`
+    MERGED_ON_REMOTE=$($GIT branch -r --merged origin/master | sed 's/ *origin\///' | grep -v 'master$')
 
     if [ "$MERGED_ON_REMOTE" ]; then
         infoText "The following remote branches are fully merged and will be removed: ${MERGED_ON_REMOTE}"
