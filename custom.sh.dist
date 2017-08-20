@@ -1,17 +1,4 @@
 #!/usr/bin/env bash
 
-# uncomment next line to enable debug mode
-#KP_DEBUG=1
-
-# uncomment next line to enable logs
-#KP_LOGS=1
-
-# uncomment next line to disable text coloring
-#KP_COLORS=0
-
 # use this file to add your custom shortcuts so you can update this repository easy
 alias ll='ls -la -color'
-
-function debug {
-    XDEBUG_CONFIG="remote_host=0.0.0.0" PHP_IDE_CONFIG="serverName=localhost"
-}

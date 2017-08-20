@@ -43,7 +43,6 @@ function _should_upgrade {
     fi
 
     if [[ ! -f "${DOTFILES}/logs/.dotfiles_last_update" ]]; then
-        _upgrade_dotfiles
         _upgrade_dotfiles_timestamp
     fi
 
