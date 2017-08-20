@@ -8,7 +8,7 @@ function _upgrade_dotfiles_timestamp {
 }
 
 function _upgrade_dotfiles {
-    log "[Info] Upgrading dotfiles request"
+    dotfiles_log "Upgrading dotfiles request" "Upgrade dotfiles"
     CURRENT_DIRECTORY=`pwd`
     cd "${DOTFILES}"
 
@@ -21,7 +21,7 @@ function _upgrade_dotfiles {
     CURRENT_COMMIT_HASH=`git rev-parse --verify HEAD`
     REMOTE_COMMIT_HASH=`git rev-parse --verify origin/master`
 
-    log "[Info] Git local: ${CURRENT_COMMIT_HASH} - Git remote: ${REMOTE_COMMIT_HASH}"
+    dotfiles_log "Git local: ${CURRENT_COMMIT_HASH} - Git remote: ${REMOTE_COMMIT_HASH}" "Upgrade dotfiles"
 
     if [[ "$CURRENT_COMMIT_HASH" != "$REMOTE_COMMIT_HASH" ]];then
         infoText "Updating Dotfiles repository ..."
@@ -38,7 +38,7 @@ function _upgrade_dotfiles {
 
 function _should_upgrade {
     if [[ $KP_UPGRADE_DAYS -eq 0 ]];then
-        log "upgrade disabled" "Dotfiles"
+        dotfiles_log "upgrade disabled" "Dotfiles"
         return 0
     fi
 

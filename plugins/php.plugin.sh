@@ -29,22 +29,22 @@ function debug {
         case $opt in
             h)
                 debug_host=${OPTARG}
-                log "set debug_host = ${debug_host}" debug
+                dotfiles_log "set debug_host = ${debug_host}" debug
                 ;;
             n)
                 debug_name=${OPTARG}
-                log "set debug_name = ${debug_name}" debug
+                dotfiles_log "set debug_name = ${debug_name}" debug
                 ;;
         esac
     done
 
     if [ -z "${debug_name}" ];then
         debug_name='localhost'
-        log "set debug_name = ${debug_name}" debug
+        dotfiles_log "set debug_name = ${debug_name}" debug
     fi
     if [ -z "${debug_host}" ];then
         debug_host='0.0.0.0'
-        log "set debug_host = ${debug_host}" debug
+        dotfiles_log "set debug_host = ${debug_host}" debug
     fi
 
     XDEBUG_CONFIG="remote_host=${debug_host}"

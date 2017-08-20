@@ -66,3 +66,13 @@ source ~/.zshrc
 | myre | run `sudo /etc/init.d/mysql restart` |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | [cln](docs/cln.md) | clone a repository from Github |
+
+### Helpers
+
+Git Config
+ 
+`scripts/git-config.sh` setup git global configuration [git-config](scripts/git-config.sh)
+ 
+Vim Config
+
+`scripts/vim-config.sh` setup vim configurations for user [vim-config](scripts/vim-config.sh)

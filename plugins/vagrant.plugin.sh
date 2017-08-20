@@ -2,25 +2,25 @@
 
 # start vagrant box and connect
 function vagon {
-    log "vagrant up && vagrant ssh: ${PWD}" "Vagrant"
+    dotfiles_log "vagrant up && vagrant ssh: ${PWD}" "Vagrant"
     vagrant up && vagrant ssh
 }
 
 # suspend a vagrant box
 function vagof {
-    log "suspend VM: ${PWD}" "Vagrant"
+    dotfiles_log "suspend VM: ${PWD}" "Vagrant"
     vagrant suspend
 }
 
 # suspend a vagrant box and close terminal window/tab
 function vagoff {
-    log "suspend VM and exit: ${PWD}" "Vagrant"
+    dotfiles_log "suspend VM and exit: ${PWD}" "Vagrant"
     vagrant suspend && exit
 }
 
 # destroy vagrant box
 function vagkill {
-    log "Destroy VM ${PWD}" "Vagrant"
+    dotfiles_log "Destroy VM ${PWD}" "Vagrant"
     vagrant destroy
 }
 
@@ -30,11 +30,11 @@ alias vagkil='vagkill'
 # find vagrant installed boxes
 function findbox {
     if [[ -d "${HOME}/VirtualBox Vms" ]]; then
-        log "Search: ${HOME}/VirtualBox\ Vms" "VirtualBox img search"
+        dotfiles_log "Search: ${HOME}/VirtualBox\ Vms" "VirtualBox img search"
         find "${HOME}/VirtualBox Vms" -type f -name '*.vbox'
     fi
     if [[ -d "${HOME}/VirtualBox_Vms" ]]; then
-        echo "Search: ${HOME}/VirtualBox_Vms" "VirtualBox img search"
+        dotfiles_log "Search: ${HOME}/VirtualBox_Vms" "VirtualBox img search"
         find $HOME/VirtualBox_Vms -type f -name '*.vbox'
     fi
 }
@@ -51,6 +51,6 @@ function kvm {
     else
         DIR=$1
     fi
-    log "cloned KVM into ${DIR}" Git
+    dotfiles_log "cloned KVM into ${DIR}" Git
     git clone https://github.com/kisphp/symfony-vagrant.git $DIR
 }

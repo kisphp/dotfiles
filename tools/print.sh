@@ -18,7 +18,7 @@ BG_BLUE="\033[44m"
 
 # Use colors, but only if connected to a terminal, and that terminal
 # supports them.
-if [ -t 1 ] && [ $KP_COLORS -gt 0 ]; then
+if [[ -t 1 ]] && [[ $KP_COLORS -gt 0 ]]; then
     ERROR="${BG_RED}${FG_WHITE}"
     SUCCESS="${BG_GREEN}${FG_BLACK}"
     INFO="${BG_YELLOW}${FG_BLACK}"
@@ -33,29 +33,29 @@ else
 fi
 
 function labelText {
-    log "${1}" "Label"
+    dotfiles_log "${1}" "Label"
     echo -e "\n${LABEL} ${1} ${NC}\n"
 }
 
 function errorText {
-    log "${1}" "Error"
+    dotfiles_log "${1}" "Error"
     echo -e "\n${ERROR} ${1} ${NC}\n"
 }
 
 function infoText {
-    log "${1}" "Info"
+    dotfiles_log "${1}" "Info"
     echo -e "\n${INFO} ${1} ${NC}\n"
 }
 
 function successText {
-    log "${1}" "Success"
+    dotfiles_log "${1}" "Success"
     echo -e "\n${SUCCESS} ${1} ${NC}\n"
 }
 
 function writeErrorMessage {
     if [[ $? != 0 ]]; then
         errorText "Error: ${1}"
-        log "[Error] [== Exit ==]"
+        dotfiles_log "[Error] [== Exit ==]"
         exit 1
     fi
 }

@@ -9,7 +9,7 @@ function makeup() {
     ADD=1
 
     if [[ -z "${1}" ]]; then
-        log "makeup without parameters" Error
+        dotfiles_log "makeup without parameters" Error
         echo "${FG_RED}You must provide a comment${NC}"
         echo "${FG_YELLOW}Usage:"
         echo "   ${0} my-comment"
@@ -36,7 +36,7 @@ function makeup() {
     fi
     ${GIT} commit -m "${*}"
     ${GIT} push
-    log "committed message '${*}' and pushed" Git
+    dotfiles_log "committed message '${*}' and pushed" Git
 }
 
 function cln {
@@ -44,35 +44,35 @@ function cln {
     REPOSITORY=$1
     shift
 
-    log "Cloned ${REPOSITORY} $*" Git
+    dotfiles_log "Cloned ${REPOSITORY} $*" Git
 
     $GIT clone "https://github.com/${REPOSITORY}.git" $*
 }
 
 function git_clean_repo {
-    log "Start repo cleanup" "Git clean"
+    dotfiles_log "Start repo cleanup" "Git clean"
     $GIT checkout master &> /dev/null
 
-    log "Run fetch" "Git clean"
+    dotfiles_log "Run fetch" "Git clean"
     # Make sure we're working with the most up-to-date version of master.
     $GIT fetch
 
     # Prune obsolete remote tracking branches. These are branches that we
     # once tracked, but have since been deleted on the remote.
-    log "[Git clean] prune obsolete tracking branches"
+    dotfiles_log "Prune obsolete tracking branches" "Git clean"
     $GIT remote prune origin
 
     # List all the branches that have been merged fully into master, and
     # then delete them. We use the remote master here, just in case our
     # local master is out of date.
-    log "[Git clean] remove all branches that were merged"
+    dotfiles_log "Remove all branches that were merged" "Git clean"
     for br in $($GIT branch --merged origin/master | grep -v 'master$'); do
-        log "Deleted branch: ${br} from ${PWD}" "Git clean"
+        dotfiles_log "Deleted branch: ${br} from ${PWD}" "Git clean"
         $GIT branch -D "${br}"
     done
 
     # Now the same, but including remote branches.
-    log "[Git clean] list all branches that were merged + remote"
+    dotfiles_log "List all branches that were merged + remote" "Git clean"
     MERGED_ON_REMOTE=`$GIT branch -r --merged origin/master | sed 's/ *origin\///' | grep -v 'master$'`
 
     if [ "$MERGED_ON_REMOTE" ]; then

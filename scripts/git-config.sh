@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-. ./tools/print.sh
+. ../kisphp-dotfiles.sh
 
-echo "What username would you like to use for git ?"
+echo -e "What ${INFO}username${NC} would you like to use for git ?"
 read username
-echo "What email would you like to use for git ?"
+echo -e "What ${INFO}email${NC} would you like to use for git ?"
 read email
 
-labelText "set global git username --->${GREEN} ${username}"
+labelText "set global git username --->${BG_BLACK}${FG_GREEN} ${username}${NC}"
 git config --global user.name "${username}"
 
-labelText "set global user email --->${GREEN} ${email}"
+labelText "set global user email --->${BG_BLACK}${FG_GREEN} ${email}${NC}"
 git config --global user.email "${email}"
 
 labelText "Display the command-line UI in color"
