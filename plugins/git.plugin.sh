@@ -78,7 +78,8 @@ function git_clean_repo {
     if [ "$MERGED_ON_REMOTE" ]; then
         infoText "The following remote branches are fully merged and will be removed: ${MERGED_ON_REMOTE}"
 
-        read -p "Continue (y/N)? "
+        echo "Continue (y/N)? "
+        read REPLY
         if [[ "$REPLY" == Y* ]] || [[ "$REPLY" == y* ]]; then
             git branch -r --merged origin/master | sed 's/ *origin\///' \
                 | grep -v 'master$' | xargs -I% git push origin :% 2>&1 \
