@@ -36,7 +36,7 @@ function makeup() {
     fi
     ${GIT} commit -m "${*}"
     ${GIT} push
-    dotfiles_log "committed message '${*}' and pushed" Git
+    dotfiles_log "committed message '${*}' and pushed" "Git"
 }
 
 function cln {
@@ -44,9 +44,9 @@ function cln {
     REPOSITORY=$1
     shift
 
-    dotfiles_log "Cloned ${REPOSITORY} $*" Git
+    dotfiles_log "Cloned ${REPOSITORY} $*" "Git"
 
-    $GIT clone "https://github.com/${REPOSITORY}.git" $*
+    $GIT clone "https://github.com/${REPOSITORY}.git" "$*"
 }
 
 function git_clean_repo {

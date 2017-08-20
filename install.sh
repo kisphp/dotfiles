@@ -59,7 +59,7 @@ function _install () {
         $GIT clone --depth=1 https://github.com/kisphp/dotfiles.git "${DOTFILES}"
     fi
 
-    if [[ ! $(cat ${ZSH_FILE} | grep "${ALIASES_SCRIPT}") ]]; then
+    if [[ ! $(grep "${ALIASES_SCRIPT}" < ${ZSH_FILE}) ]]; then
         echo "--register aliases--"
         echo ". ${ALIASES_SCRIPT}" >> $ZSH_FILE
     fi
