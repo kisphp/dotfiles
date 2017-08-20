@@ -31,7 +31,7 @@ function makeup() {
         esac
     done
 
-    if [[ "$ADD" == 1 ]];then
+    if [[ "${ADD}" == 1 ]];then
         ${GIT} add .
     fi
     ${GIT} commit -m "${*}"
@@ -49,10 +49,10 @@ function cln {
 }
 
 function git_clean_repo {
-    log "[Git clean] start repo cleanup"
+    log "Start repo cleanup" "Git clean"
     $GIT checkout master &> /dev/null
 
-    log "[Git clean] fetch"
+    log "Run fetch" "Git clean"
     # Make sure we're working with the most up-to-date version of master.
     $GIT fetch
 
@@ -66,7 +66,7 @@ function git_clean_repo {
     # local master is out of date.
     log "[Git clean] remove all branches that were merged"
     for br in $($GIT branch --merged origin/master | grep -v 'master$'); do
-        log "Deleted branch: ${br} from ${PWD}"
+        log "Deleted branch: ${br} from ${PWD}" "Git clean"
         $GIT branch -D "${br}"
     done
 
@@ -82,7 +82,7 @@ function git_clean_repo {
             git branch -r --merged origin/master | sed 's/ *origin\///' \
                 | grep -v 'master$' | xargs -I% git push origin :% 2>&1 \
                 | grep --colour=never 'deleted'
-            successText "Done!"
+            successText "Remove branches were successfully deleted: ${MERGED_ON_REMOTE}"
         fi
     fi
 }

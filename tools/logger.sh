@@ -7,6 +7,7 @@ function log {
         if [[ -z "${label}" ]];then
             label='Info'
         fi
-        echo "[${label}] ${message}" >> "${DOTFILES}/logs/cmd.log"
+        now=`date +%Y-%m-%d\ %H:%M:%S`
+        echo "${now} [${label}] ${message}" >> "${DOTFILES}/logs/cmd.log"
     fi
 }

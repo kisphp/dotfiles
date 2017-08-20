@@ -33,22 +33,22 @@ else
 fi
 
 function labelText {
-    log "${1}" Label
+    log "${1}" "Label"
     echo -e "\n${LABEL} ${1} ${NC}\n"
 }
 
 function errorText {
-    log "${1}" Error
+    log "${1}" "Error"
     echo -e "\n${ERROR} ${1} ${NC}\n"
 }
 
 function infoText {
-    log "${1}" Info
+    log "${1}" "Info"
     echo -e "\n${INFO} ${1} ${NC}\n"
 }
 
 function successText {
-    log "${1}" Success
+    log "${1}" "Success"
     echo -e "\n${SUCCESS} ${1} ${NC}\n"
 }
 
