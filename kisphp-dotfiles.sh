@@ -13,7 +13,6 @@ if [ "${KP_DEBUG}" -eq 1 ];then
     set -x
 fi
 
-
 # load tools libraries
 . "${DOTFILES}/tools/helpers.sh"
 . "${DOTFILES}/tools/logger.sh"
