@@ -1,4 +1,4 @@
-# Debug
+# `debug`
 
 > This command is used in combination with php and will set variables:
 > ```bash

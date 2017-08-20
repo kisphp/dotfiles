@@ -1,4 +1,4 @@
-#### `makeup`
+# `makeup`
 
 Syntax:
 ```bash
