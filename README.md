@@ -36,7 +36,7 @@ echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### If you have oh-my-zsh installed
+### If you have oh-my-zsh installed or use zsh as default shell
 ```
 # or if you have ohmyzsh installed
 echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.zshrc
@@ -44,7 +44,6 @@ echo ". ~/.dotfiles/kisphp-dotfiles.sh" >> ~/.zshrc
 # reinitialize aliases
 source ~/.zshrc
 ```
-
 
 ### Aliases
 
@@ -66,4 +65,4 @@ source ~/.zshrc
 | ngre | run `sudo /etc/init.d/nginx restart` |
 | myre | run `sudo /etc/init.d/mysql restart` |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
-| cln | clone a git repository `cln symfony/symfony_standard directory_name` (directory_name is optional) |
+| [cln](docs/cln.md) | clone a repository from Github |

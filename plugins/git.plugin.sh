@@ -40,6 +40,7 @@ function makeup() {
 }
 
 function cln {
+    show_manual cln $1 && return 0
     REPOSITORY=$1
     shift
 
