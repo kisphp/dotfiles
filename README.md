@@ -12,10 +12,22 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 > [For manual installation click here](INSTALL.md)
 
 
+## Configuration `~/.dotfiles.cfg`
+
+| Parameter | Default Value | Info |
+| --- | --- | --- |
+| KP_DEBUG | 0 | enable debug messages |
+| KP_LOGS | 0 | keep a log with all commands executed by the tool |
+| KP_COLORS | 1 | enable colored text |
+| KP_UPGRADE_DAYS | 432000 | check for upgrade at each 5 days |
+
 ## Available Aliases
 
 | Command | Details |
 | --- | --- |
+| _upgrade_dotfiles | force update of the tool |
+| _upgrade_dotfiles_timestamp | update last check lock file |
+| _should_upgrade | check for new upgrades |
 | allow_ssh_auth | `allow_ssh_auth user@server.domain` will allow you to connect via SSH without password |
 | apare | run `sudo /etc/init.d/apache2 restart` |
 | [cln](docs/cln.md) | clone a repository from Github |
@@ -25,7 +37,11 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | gign | add file or directory to gitignore |
 | git_clean_repo | remove merged branched from local and remote |
 | kvm | install kisphp virtual machine |
-| [Makeup](docs/makeup.md) | faster commit and push to git repositorygst |
+| labelText | Text on blue background |
+| errorText | Text on red background |
+| infoText | Text on yello background |
+| successText | Text on green background |
+| [makeup](docs/makeup.md) | faster commit and push to git repositorygst |
 | mcd | create directory and get inside it |
 | myre | run `sudo /etc/init.d/mysql restart` |
 | ngre | run `sudo /etc/init.d/nginx restart` |
@@ -39,7 +55,8 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | vagoff | run `vagrant suspend && exit` |
 | vagkill | run `vagrant destroy` |
 | vagkil | alias to `vagkill` |
-| vagSrc | search for VM path |
+| vagSrc | search for VM path 
+| writeErrorMessage | called in some commands when they fail to display the errorText |
 
 ## Configuration scripts
 
