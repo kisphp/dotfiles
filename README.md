@@ -51,6 +51,7 @@ source ~/.zshrc
 
 | Command | Details |
 | --- | --- |
+| allow_ssh_auth | `allow_ssh_auth user@server.domain` will allow you to connect via SSH without password |
 | apare | run `sudo /etc/init.d/apache2 restart` |
 | [cln](docs/cln.md) | clone a repository from Github |
 | codecept | run codeception suite |
