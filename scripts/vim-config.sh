@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VIMCFG='~/.vimrc'
+VIMCFG="${HOME}/.vimrc"
 
 echo "set enc=utf-8" >> $VIMCFG
 echo "set fenc=utf-8" >> $VIMCFG
