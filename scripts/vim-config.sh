@@ -19,8 +19,6 @@ echo "set bs=2" >> $VIMCFG
 
 echo "set clipboard=unnamed" >> $VIMCFG
 
-echo "set viminfo=''" >> $VIMCFG
-
 echo "syntax on" >> $VIMCFG
 
 echo "set number" >> $VIMCFG
