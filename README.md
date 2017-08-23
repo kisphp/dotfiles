@@ -55,13 +55,16 @@ source ~/.zshrc
 | apare | run `sudo /etc/init.d/apache2 restart` |
 | [cln](docs/cln.md) | clone a repository from Github |
 | codecept | run codeception suite |
-| [Debug](docs/debug.md) | configure xdebug parameters for php scripts |
+| [debug](docs/debug.md) | configure xdebug parameters for php scripts |
 | findbox | find virtual boxes in host machine |
 | gign | add file or directory to gitignore |
+| git_clean_repo | remove merged branched from local and remote |
 | kvm | install kisphp virtual machine |
 | [Makeup](docs/makeup.md) | faster commit and push to git repositorygst |
 | myre | run `sudo /etc/init.d/mysql restart` |
 | ngre | run `sudo /etc/init.d/nginx restart` |
+| p2 | run python 2 |
+| p3 | run python 3 |
 | pfix | run `php-cs-fixer fix v` command |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | vagon | run `vagrant up && vagrant ssh` |
