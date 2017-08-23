@@ -39,6 +39,11 @@ function makeup() {
     dotfiles_log "committed message '${*}' and pushed" "Git"
 }
 
+function gign {
+    dotfiles_log "Add file '${1}' to gitignore" "Git"
+    echo "${1}" >> .gitignore
+}
+
 function cln {
     show_manual cln $1 && return 0
     REPOSITORY=$1

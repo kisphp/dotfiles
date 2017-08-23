@@ -51,23 +51,24 @@ source ~/.zshrc
 
 | Command | Details |
 | --- | --- |
-| [Debug](docs/debug.md) | configure xdebug parameters for php scripts |
-| [Makeup](docs/makeup.md) | faster commit and push to git repositorygst |
-| pfix | run `php-cs-fixer fix v` command |
+| apare | run `sudo /etc/init.d/apache2 restart` |
+| [cln](docs/cln.md) | clone a repository from Github |
 | codecept | run codeception suite |
+| [Debug](docs/debug.md) | configure xdebug parameters for php scripts |
 | findbox | find virtual boxes in host machine |
-| vagSrc | search for VM path |
+| gign | add file or directory to gitignore |
 | kvm | install kisphp virtual machine |
+| [Makeup](docs/makeup.md) | faster commit and push to git repositorygst |
+| myre | run `sudo /etc/init.d/mysql restart` |
+| ngre | run `sudo /etc/init.d/nginx restart` |
+| pfix | run `php-cs-fixer fix v` command |
+| phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | vagon | run `vagrant up && vagrant ssh` |
 | vagof | run `vagrant suspend` |
 | vagoff | run `vagrant suspend && exit` |
 | vagkill | run `vagrant destroy` |
 | vagkil | alias to `vagkill` |
-| apare | run `sudo /etc/init.d/apache2 restart` |
-| ngre | run `sudo /etc/init.d/nginx restart` |
-| myre | run `sudo /etc/init.d/mysql restart` |
-| phpre | run `sudo /etc/init.d/php7-fpm restart` |
-| [cln](docs/cln.md) | clone a repository from Github |
+| vagSrc | search for VM path |
 
 ### Helpers
 
