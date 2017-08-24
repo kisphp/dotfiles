@@ -6,7 +6,7 @@ GIT=$(which git)
 function makeup() {
     show_manual makeup $1 && return 0
 
-    ADD=1
+    ADD_FILES_TO_GIT=1
 
     if [[ -z "${1}" ]]; then
         dotfiles_log "makeup without parameters" Error
@@ -24,14 +24,14 @@ function makeup() {
     while getopts ":n" opt; do
         case $opt in
             n)
-                ADD=0
+                ADD_FILES_TO_GIT=0
                 # unset $1 variable
                 shift
                 ;;
         esac
     done
 
-    if [[ "${ADD}" == 1 ]];then
+    if [[ "${ADD_FILES_TO_GIT}" == 1 ]];then
         ${GIT} add .
     fi
     ${GIT} commit -m "${*}"
@@ -52,6 +52,7 @@ function cln {
     dotfiles_log "Cloned ${REPOSITORY} $*" "Git"
 
     $GIT clone "https://github.com/${REPOSITORY}.git" "$*"
+    writeErrorMessage "Could not clone repository ${REPOSITORY}"
 }
 
 function git_clean_repo {

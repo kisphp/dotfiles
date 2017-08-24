@@ -34,22 +34,22 @@ fi
 
 function labelText {
     dotfiles_log "${1}" "Label"
-    echo -e "\n${LABEL} ${1} ${NC}\n"
+    echo -e "${LABEL} ${1} ${NC}"
 }
 
 function errorText {
     dotfiles_log "${1}" "Error"
-    echo -e "\n${ERROR} ${1} ${NC}\n"
+    echo -e "${ERROR} ${1} ${NC}"
 }
 
 function infoText {
     dotfiles_log "${1}" "Info"
-    echo -e "\n${INFO} ${1} ${NC}\n"
+    echo -e "${INFO} ${1} ${NC}"
 }
 
 function successText {
     dotfiles_log "${1}" "Success"
-    echo -e "\n${SUCCESS} ${1} ${NC}\n"
+    echo -e "${SUCCESS} ${1} ${NC}"
 }
 
 function writeErrorMessage {

@@ -11,4 +11,5 @@ function mcd {
         return 1
     fi
     mkdir "${1}" && cd "${1}"
+    writeErrorMessage "Could not create directory ${1}"
 }

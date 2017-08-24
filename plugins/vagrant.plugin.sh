@@ -52,5 +52,5 @@ function kvm {
         DIR=$1
     fi
     dotfiles_log "cloned KVM into ${DIR}" Git
-    git clone https://github.com/kisphp/symfony-vagrant.git $DIR
+    cln "kisphp/symfony-vagrant" "${DIR}"
 }
