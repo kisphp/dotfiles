@@ -50,6 +50,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | p3 | run python 3 |
 | pfix | run `php-cs-fixer fix v` command |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
+| uncommit | Cancel last commit (if it was not pushed) |
 | vagon | run `vagrant up && vagrant ssh` |
 | vagof | run `vagrant suspend` |
 | vagoff | run `vagrant suspend && exit` |

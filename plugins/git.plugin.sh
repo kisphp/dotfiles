@@ -55,6 +55,12 @@ function cln {
     writeErrorMessage "Could not clone repository ${REPOSITORY}"
 }
 
+# Cancel last commit message
+function uncommit {
+    dotfiles_log "Cancel last commit" "Git"
+    $GIT reset --soft HEAD^
+}
+
 function git_clean_repo {
     dotfiles_log "Start repo cleanup" "Git clean"
     $GIT checkout master &> /dev/null
