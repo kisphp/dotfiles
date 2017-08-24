@@ -56,8 +56,10 @@ function writeErrorMessage {
     if [[ $? != 0 ]]; then
         errorText "Error: ${1}"
         dotfiles_log "[Error] [== Exit ==]"
-        exit 1
+        return 1
     fi
+
+    return 0
 }
 
 # this function is only for debug print messages only
