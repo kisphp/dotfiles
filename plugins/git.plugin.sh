@@ -6,6 +6,11 @@ GIT=$(which git)
 function makeup() {
     show_manual makeup $1 && return 0
 
+    if [[ "${1}" == "-h" ]];then
+        makeup --help
+        return 0
+    fi
+
     ADD_FILES_TO_GIT=1
 
     if [[ -z "${1}" ]]; then
