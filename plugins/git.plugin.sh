@@ -66,6 +66,8 @@ function uncommit {
     $GIT reset --soft HEAD^
 }
 
+alias clean_repo='git_clean_repo'
+
 function git_clean_repo {
     dotfiles_log "Start repo cleanup" "Git clean"
     $GIT checkout master &> /dev/null
