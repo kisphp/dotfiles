@@ -46,6 +46,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | successText | Text on green background |
 | [makeup](docs/makeup.md) | faster commit and push to git repositorygst |
 | mcd | create directory and get inside it |
+| mergefile | `mergefile original_file file_to_merge_in_original` get content from second file and merge it with first file |
 | myre | run `sudo /etc/init.d/mysql restart` |
 | ngre | run `sudo /etc/init.d/nginx restart` |
 | o | Open file in default app, open url in browser from terminal |

@@ -131,3 +131,31 @@ function git_clean_repo {
         fi
     fi
 }
+
+function mergefile {
+    FILE_1="${1}"
+    FILE_2="${2}"
+
+    if [[ -z $FILE_1 ]];then
+        errorText "Source file not provided"
+        return 1
+    fi
+    if [[ -z $FILE_2 ]];then
+        errorText "Target file not provided"
+        return 1
+    fi
+
+    # create backup file
+    cp "${FILE_1}" "${FILE_1}.bkp"
+
+    # create temporary file
+    echo '' > "${FILE_1}.merged"
+    # do the merge
+    $GIT merge-file -p --union "${FILE_1}" "${FILE_1}.merged" "${FILE_2}" > "${FILE_1}.merged"
+    # copy merge result to first file
+    cp "${FILE_1}.merged" "${FILE_1}"
+    # remove merge result file
+    rm "${FILE_1}.merged"
+
+    return 0
+}
