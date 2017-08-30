@@ -49,6 +49,30 @@ function gign {
     echo "${1}" >> .gitignore
 }
 
+function edited {
+    BRANCH='master'
+
+    while getopts ":b:" opt; do
+        case $opt in
+            b)
+                shift
+                if [[ "${1}" != "" ]];then
+                    BRANCH="${1}"
+                fi
+                ;;
+        esac
+    done
+
+    files="$(${GIT} diff --name-only origin/${BRANCH})"
+
+    for file in $files;
+    do
+        echo $file
+    done
+}
+
+alias ged='edited'
+
 function cln {
     show_manual cln $1 && return 0
     REPOSITORY=$1

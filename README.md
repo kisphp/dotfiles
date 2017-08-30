@@ -34,7 +34,9 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | [cln](docs/cln.md) | clone a repository from Github |
 | codecept | run codeception suite |
 | [debug](docs/debug.md) | configure xdebug parameters for php scripts |
+| edited | display edited files in repository |
 | findbox | find virtual boxes in host machine |
+| ged | alias to `edited` |
 | gign | add file or directory to gitignore |
 | git_clean_repo | remove merged branched from local and remote |
 | kvm | install kisphp virtual machine |
