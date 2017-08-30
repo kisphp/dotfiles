@@ -2,3 +2,9 @@
 
 # use this file to add your custom shortcuts so you can update this repository easy
 alias ll='ls -la -color'
+
+# reload bash aliases
+function reload {
+    echo "Reloading bash aliases"
+    source "${HOME}/.zshrc"
+}
