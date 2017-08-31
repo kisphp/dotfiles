@@ -3,10 +3,12 @@
 # Path to your oh-my-zsh installation.
 export DOTFILES=$HOME/.dotfiles
 
-# load config file
+# create config files in user's home directory if does not exists
 if [[ ! -f $HOME/.dotfiles.cfg ]]; then
     cp "${DOTFILES}/.dotfiles.cfg.dist" "${HOME}/.dotfiles.cfg"
 fi
+
+# load config file
 . "${HOME}/.dotfiles.cfg"
 
 if [ "${KP_DEBUG}" -eq 1 ];then
