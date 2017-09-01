@@ -13,3 +13,10 @@ function show_manual {
 
     return 1
 }
+
+function read_file_content {
+    while read -r line
+    do
+        echo -e "${line}"
+    done < "${1}"
+}
