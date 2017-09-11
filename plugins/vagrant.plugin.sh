@@ -15,13 +15,13 @@ function vagof {
 # suspend a vagrant box and close terminal window/tab
 function vagoff {
     dotfiles_log "suspend VM and exit: ${PWD}" "Vagrant"
-    vagrant suspend && exit
+    vagrant suspend $@ && exit
 }
 
 # destroy vagrant box
 function vagkill {
     dotfiles_log "Destroy VM ${PWD}" "Vagrant"
-    vagrant destroy
+    vagrant destroy $@
 }
 
 # destory vagrant box alias
