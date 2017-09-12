@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# destory vagrant box alias
+alias vagkil='vagkill'
+alias vsh='vagrant ssh'
+alias vup='vagrant up'
+
 # start vagrant box and connect
 function vagon {
     dotfiles_log "vagrant up && vagrant ssh: ${PWD}" "Vagrant"
@@ -23,9 +28,6 @@ function vagkill {
     dotfiles_log "Destroy VM ${PWD}" "Vagrant"
     vagrant destroy $@
 }
-
-# destory vagrant box alias
-alias vagkil='vagkill'
 
 # find vagrant installed boxes
 function findbox {
