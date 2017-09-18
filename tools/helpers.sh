@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # this function is used to display the content from manual md file with same name as called function
-function show_manual {
+show_manual () {
     file="${DOTFILES}/docs/${1}.md"
 
     if [[ "${2}" == "--help" ]] && [[ -f $file ]];then
@@ -14,7 +14,7 @@ function show_manual {
     return 1
 }
 
-function read_file_content {
+read_file_content () {
     while read -r line
     do
         echo -e "${line}"

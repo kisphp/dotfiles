@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # update lock file will be updated for the next period
-function _upgrade_dotfiles_timestamp {
+_upgrade_dotfiles_timestamp () {
     # next five days
     TIMESTAMP=$(echo $(date +%s) + $KP_UPGRADE_DAYS | bc)
 
@@ -10,7 +10,7 @@ function _upgrade_dotfiles_timestamp {
 
 # upgrade dotfiles tool
 # this can be called directly without any confirmation
-function _upgrade_dotfiles {
+_upgrade_dotfiles () {
     dotfiles_log "Upgrading dotfiles request" "Upgrade dotfiles"
     CURRENT_DIRECTORY=$(pwd)
     cd "${DOTFILES}"
@@ -41,7 +41,7 @@ function _upgrade_dotfiles {
 
 # this method check if it is time to update the tool
 # the update lock file will be updated for the next period
-function _should_upgrade {
+_should_upgrade () {
     if [[ $KP_UPGRADE_DAYS -eq 0 ]];then
         dotfiles_log "upgrade disabled" "Dotfiles"
         return 0

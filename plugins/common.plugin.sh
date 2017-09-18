@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function mcd {
+mcd () {
     dotfiles_log "Create directory ${1} and get inside it" Common
     if [[ -z "${1}" ]]; then
         errorText "You must specify the directory name"

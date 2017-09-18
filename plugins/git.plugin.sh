@@ -3,7 +3,7 @@
 GIT=$(which git)
 
 # quick git merge and push
-function makeup() {
+makeup () {
     show_manual makeup $1 && return 0
 
     if [[ "${1}" == "-h" ]];then
@@ -44,12 +44,12 @@ function makeup() {
     dotfiles_log "committed message '${*}' and pushed" "Git"
 }
 
-function gign {
+gign () {
     dotfiles_log "Add file '${1}' to gitignore" "Git"
     echo "${1}" >> .gitignore
 }
 
-function edited {
+edited () {
     BRANCH='master'
 
     while getopts ":b:" opt; do
@@ -73,7 +73,7 @@ function edited {
 
 alias ged='edited'
 
-function cln {
+cln () {
     show_manual cln $1 && return 0
     REPOSITORY=$1
     shift
@@ -85,14 +85,14 @@ function cln {
 }
 
 # Cancel last commit message
-function uncommit {
+uncommit () {
     dotfiles_log "Cancel last commit" "Git"
     $GIT reset --soft HEAD^
 }
 
 alias clean_repo='git_clean_repo'
 
-function git_clean_repo {
+git_clean_repo () {
     dotfiles_log "Start repo cleanup" "Git clean"
     $GIT checkout master &> /dev/null
 
@@ -132,7 +132,7 @@ function git_clean_repo {
     fi
 }
 
-function mergefile {
+mergefile () {
     FILE_1="${1}"
     FILE_2="${2}"
 

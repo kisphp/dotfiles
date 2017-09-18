@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # use this file to add your custom shortcuts so you can update this repository easy
-alias ll='ls -la -color'
+alias ll='ls -la'
 
 # reload bash aliases
-function reload {
+reload () {
     echo "Reloading bash aliases"
     source "${HOME}/.zshrc"
 }

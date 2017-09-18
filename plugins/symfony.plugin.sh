@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $(whence sf) == "" ]];then
-    function sf {
+    sf () {
         if [[ -f app/console ]];then
             dotfiles_log "Run console from app directory $(pwd)" "symfony"
             app/console $@

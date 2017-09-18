@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function dotfiles_log {
+dotfiles_log () {
     if [[ "${KP_LOGS}" -gt 0 ]];then
         message=$1
         label=$2

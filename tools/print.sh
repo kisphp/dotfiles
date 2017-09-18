@@ -32,27 +32,27 @@ else
     export NC=""
 fi
 
-function labelText {
+labelText () {
     dotfiles_log "${1}" "Label"
     echo -e "${LABEL} ${1} ${NC}"
 }
 
-function errorText {
+errorText () {
     dotfiles_log "${1}" "Error"
     echo -e "${ERROR} ${1} ${NC}"
 }
 
-function infoText {
+infoText () {
     dotfiles_log "${1}" "Info"
     echo -e "${INFO} ${1} ${NC}"
 }
 
-function successText {
+successText () {
     dotfiles_log "${1}" "Success"
     echo -e "${SUCCESS} ${1} ${NC}"
 }
 
-function writeErrorMessage {
+writeErrorMessage () {
     if [[ $? != 0 ]]; then
         errorText "Error: ${1}"
         dotfiles_log "[Error] [== Exit ==]"
@@ -62,8 +62,8 @@ function writeErrorMessage {
     return 0
 }
 
-# this function is only for debug print messages only
-function _debug_print {
+# this is only for debug print messages only
+_debug_print () {
     labelText "this is label text"
     errorText "this is error text"
     infoText "this is info text"

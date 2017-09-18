@@ -5,19 +5,19 @@ alias vsh='vagrant ssh'
 alias vup='vagrant up'
 
 # start vagrant box and connect
-function vagon {
+vagon () {
     dotfiles_log "vagrant up && vagrant ssh: ${PWD}" "Vagrant"
     vagrant up && vagrant ssh
 }
 
 # suspend a vagrant box
-function vagof {
+vagof () {
     dotfiles_log "suspend VM: ${PWD}" "Vagrant"
     vagrant suspend
 }
 
 # suspend a vagrant box and close terminal window/tab
-function vagoff {
+vagoff () {
     dotfiles_log "suspend VM and exit: ${PWD}" "Vagrant"
     vagrant suspend $@ && exit
 }
@@ -34,7 +34,7 @@ vagkill () {
 }
 
 # find vagrant installed boxes
-function findbox {
+findbox () {
     if [[ -d "${HOME}/VirtualBox Vms" ]]; then
         dotfiles_log "Search: ${HOME}/VirtualBox\ Vms" "VirtualBox img search"
         find "${HOME}/VirtualBox Vms" -type f -name '*.vbox'
@@ -46,7 +46,7 @@ function findbox {
 }
 
 # find vagrant box location
-function vagSrc {
+vagSrc () {
     grep -Hrni 'SharedFolder name="vagrant"' "$1"
 }
 
@@ -66,7 +66,7 @@ listbox () {
 }
 
 # download kisphp virtual machine for single symfony project
-function kvm {
+kvm () {
     if [[ -z $1 ]]; then
         DIR='_vm'
     else

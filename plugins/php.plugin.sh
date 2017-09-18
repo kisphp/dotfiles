@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # run php code fixer
-function pfix {
+pfix () {
     if [[ -f 'vendor/bin/php-cs-fixer' ]]; then
         php vendor/bin/php-cs-fixer fix -v
     fi
@@ -12,7 +12,7 @@ function pfix {
 }
 
 # run codeception
-function codecept {
+codecept () {
     if [[ -f 'vendor/bin/codecept' ]]; then
         php vendor/bin/codecept $@
     fi
@@ -22,7 +22,7 @@ function codecept {
     fi
 }
 
-function debug {
+debug () {
     show_manual debug $1 && return 0
 
     while getopts ":h:n:" opt; do

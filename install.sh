@@ -28,7 +28,7 @@ DOTFILES=$HOME/.dotfiles
 
 ALIASES_SCRIPT="$DOTFILES/kisphp-dotfiles.sh"
 
-function _install () {
+_install () {
 
     if [[ -f "$HOME/.zshrc" ]];then
         ZSH_FILE="$HOME/.zshrc"
