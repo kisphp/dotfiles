@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # destory vagrant box alias
-alias vagkil='vagkill'
 alias vsh='vagrant ssh'
 alias vup='vagrant up'
 
@@ -23,10 +22,15 @@ function vagoff {
     vagrant suspend $@ && exit
 }
 
-# destroy vagrant box
-function vagkill {
+vagkil () {
     dotfiles_log "Destroy VM ${PWD}" "Vagrant"
     vagrant destroy $@
+}
+
+# destroy vagrant box
+vagkill () {
+    vagkil $@
+    exit
 }
 
 # find vagrant installed boxes
