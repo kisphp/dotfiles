@@ -43,7 +43,19 @@ function findbox {
 
 # find vagrant box location
 function vagSrc {
-    grep -Hrni 'SharedFolder name="vagrant"' $1
+    grep -Hrni 'SharedFolder name="vagrant"' "$1"
+}
+
+listbox () {
+    findbox > /tmp/findbox.list
+
+    IFS=$'\n'
+    for line in $(cat /tmp/findbox.list)
+    do
+        vagSrc "$line"
+    done
+
+    rm /tmp/findbox.list
 }
 
 # download kisphp virtual machine for single symfony project

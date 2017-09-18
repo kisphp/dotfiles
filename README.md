@@ -41,6 +41,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | git_clean_repo | remove merged branched from local and remote |
 | kvm | install kisphp virtual machine |
 | labelText | Text on blue background |
+| listbox | List vagrant boxes location |
 | errorText | Text on red background |
 | infoText | Text on yello background |
 | successText | Text on green background |
