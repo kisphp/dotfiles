@@ -47,14 +47,17 @@ function vagSrc {
 }
 
 listbox () {
+    # get list of vagrant boxes and save it to a file
     findbox > /tmp/findbox.list
 
-    IFS=$'\n'
+    IFS=$'\n' # make new lines the only separator
     for line in $(cat /tmp/findbox.list)
     do
+        # display result
         vagSrc "$line"
     done
 
+    # remove temporary file
     rm /tmp/findbox.list
 }
 
