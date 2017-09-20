@@ -65,6 +65,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | vagkil | run `vagrant destroy` |
 | vagSrc | search for VM path |
 | vsh | run `vagrant ssh` | 
+| vst | run `vagrant status` | 
 | vup | run `vagrant up` | 
 | writeErrorMessage | called in some commands when they fail to display the errorText |
 

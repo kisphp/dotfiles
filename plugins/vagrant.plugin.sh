@@ -3,6 +3,7 @@
 # destory vagrant box alias
 alias vsh='vagrant ssh'
 alias vup='vagrant up'
+alias vst='vagrant status'
 
 # start vagrant box and connect
 vagon () {
