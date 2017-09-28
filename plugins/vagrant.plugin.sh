@@ -4,11 +4,12 @@
 alias vsh='vagrant ssh'
 alias vup='vagrant up'
 alias vst='vagrant status'
+alias von='vagon'
 
 # start vagrant box and connect
 vagon () {
     dotfiles_log "vagrant up && vagrant ssh: ${PWD}" "Vagrant"
-    vagrant up && vagrant ssh
+    vagrant up $@ && vagrant ssh
 }
 
 # suspend a vagrant box

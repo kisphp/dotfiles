@@ -58,7 +58,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | sf | shortcut to `app/console` or `bin/console` or `vendor/bin/console` |
 | uncommit | Cancel last commit (if it was not pushed) |
-| vagon | run `vagrant up && vagrant ssh` |
+| vagon | run `vagrant up $@ && vagrant ssh` |
 | vagof | run `vagrant suspend` |
 | vagoff | run `vagrant suspend && exit` |
 | vagkill | run `vagrant destroy && exit`  |
@@ -67,6 +67,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | vsh | run `vagrant ssh` | 
 | vst | run `vagrant status` | 
 | vup | run `vagrant up` | 
+| von | run `vaon` function | 
 | writeErrorMessage | called in some commands when they fail to display the errorText |
 
 ## Configuration scripts
