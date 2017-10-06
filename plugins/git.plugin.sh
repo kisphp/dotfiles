@@ -40,7 +40,7 @@ makeup () {
         ${GIT} add .
     fi
     ${GIT} commit -m "${*}"
-    ${GIT} push
+    ${GIT} push -u
     dotfiles_log "committed message '${*}' and pushed" "Git"
 }
 
