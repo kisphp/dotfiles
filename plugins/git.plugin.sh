@@ -80,7 +80,11 @@ cln () {
 
     dotfiles_log "Cloned ${REPOSITORY} $*" "Git"
 
-    $GIT clone "https://github.com/${REPOSITORY}.git" "$*"
+    if [[ -z "$*" ]];then
+        $GIT clone "https://github.com/${REPOSITORY}.git"
+    else
+        $GIT clone "https://github.com/${REPOSITORY}.git" "$*"
+    fi
     writeErrorMessage "Could not clone repository ${REPOSITORY}"
 }
 
