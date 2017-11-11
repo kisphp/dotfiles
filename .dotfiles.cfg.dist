@@ -11,4 +11,8 @@ KP_COLORS=1
 
 # how often should the application check for new upgrades
 # if you want to disable the updates, then set the value to 0
-KP_UPGRADE_DAYS=86400 # 1 day in seconds
+KP_UPGRADE_DAYS=259200 # 3 days in seconds
+
+# if 1 do not ask about upgrade when is necessary
+# if 0 upgrade will be done without confirmation
+KP_UPGRADE_HIDDEN=1
