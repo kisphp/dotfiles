@@ -23,14 +23,39 @@ myre () {
 
 # restart phpfpm
 phpre () {
+    if [[ $(uname) != "Linux" ]]; then
+        errorText "This command must be executed only on linux machines"
+
+        exit 0
+    fi
     if [[ -f '/etc/init.d/php7-fpm' ]]; then
         dotfiles_log "Restart version 7" "FPM"
         sudo /etc/init.d/php7-fpm restart
         writeErrorMessage "PHP 7 FPM could not be restarted"
+
+        exit 0
+    fi
+    if [[ -f '/etc/init.d/php7.0-fpm' ]]; then
+        dotfiles_log "Restart version 7.0" "FPM"
+        sudo /etc/init.d/php7.0-fpm restart
+        writeErrorMessage "PHP 7.0 FPM could not be restarted"
+
+        exit 0
+    fi
+    if [[ -f '/etc/init.d/php7.1-fpm' ]]; then
+        dotfiles_log "Restart version 7.1" "FPM"
+        sudo /etc/init.d/php7.1-fpm restart
+        writeErrorMessage "PHP 7.1 FPM could not be restarted"
+
+        exit 0
     fi
     if [[ -f '/etc/init.d/php5-fpm' ]]; then
         dotfiles_log "Restart version 5" "FPM"
         sudo /etc/init.d/php5-fpm restart
         writeErrorMessage "PHP 5 FPM could not be restarted"
+
+        exit 0
     fi
+
+    errorText "No php executable found"
 }
