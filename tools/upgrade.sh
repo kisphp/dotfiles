@@ -53,8 +53,12 @@ _should_upgrade () {
 
     NEXT_UPDATE=$(cat ${DOTFILES}/logs/.dotfiles_last_update)
     if [[ $NEXT_UPDATE -lt $(date +%s) ]]; then
-        echo "${INFO}${BLACKTEXT} [Kisphp Dotfiles] Would you like to check for updates ? [Y|n] ${NC}"
-        read line
+        if [[ $KP_UPGRADE_HIDDEN == "1" ]]; then
+            line="y"
+        else
+            echo "${INFO}${BLACKTEXT} [Kisphp Dotfiles] Would you like to check for updates ? [Y|n] ${NC}"
+            read line
+        fi
         if [[ "$line" == Y* ]] || [[ "$line" == y* ]] || [ -z "$line" ]; then
             _upgrade_dotfiles
         fi
