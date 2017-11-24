@@ -2,12 +2,6 @@
   "name": "vendor-name/repo-name",
   "description": "add description here",
   "type": "library",
-  "require": {
-    "php": ">=7.1"
-  },
-  "require-dev": {
-    "symfony/var-dumper": "~3.3"
-  },
   "license": "MIT",
   "authors": [
     {
@@ -17,7 +11,6 @@
   ],
   "minimum-stability": "dev",
   "prefer-stable": true,
-
   "config": {
     "platform": {
       "php": "7.1"
@@ -46,6 +39,12 @@
     "files": [
       "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
     ]
+  },
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "~3.3"
   },
   "repositories": [
     {
