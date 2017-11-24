@@ -51,10 +51,42 @@ debug () {
     export PHP_IDE_CONFIG="serverName=${debug_name}"
 }
 
+php_git_ignore_element () {
+    RESULT=$(cat .gitignore | grep "${1}" | wc -l)
+
+    if [[ "${RESULT}" -eq 0 ]]; then
+        labelText "Add ${1} to ignore list"
+        gign "${1}"
+    fi
+
+    return 0
+}
+
+php_new_dir () {
+    if [[ ! -d "${1}" ]]; then
+        labelText "Create ${1} directory"
+        mkdir "${1}"
+    else
+        infoText "${1} directory already exists. ignoring"
+    fi
+
+    return 0
+}
+
 php_project () {
-    mkdir src
-    mkdir tests
-    cp ~/.dotfiles/templates/composer.json ./composer.json
-    gign "vendor/"
-    gign ".idea/"
+    php_new_dir "./src"
+    php_new_dir "./tests"
+
+    if [[ ! -f './composer.json' ]]; then
+        labelText "Generate composer.json file"
+        cp ~/.dotfiles/templates/composer.json ./composer.json
+    else
+        infoText "composer.json already exists. ignoring"
+    fi
+    if [[ ! -f './.gitignore' ]]; then
+        touch .gitignore
+    fi
+
+    php_git_ignore_element "vendor/"
+    php_git_ignore_element ".idea/"
 }
