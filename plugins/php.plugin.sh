@@ -50,3 +50,11 @@ debug () {
     export XDEBUG_CONFIG="remote_host=${debug_host}"
     export PHP_IDE_CONFIG="serverName=${debug_name}"
 }
+
+php_project () {
+    mkdir src
+    mkdir tests
+    cp ~/.dotfiles/templates/composer.json ./composer.json
+    gign "vendor/"
+    gign ".idea/"
+}
