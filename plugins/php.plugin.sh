@@ -52,7 +52,7 @@ debug () {
 }
 
 php_git_ignore_element () {
-    RESULT=$(cat .gitignore | grep "${1}" | wc -l)
+    RESULT=$(grep "${1}" < .gitignore | wc -l)
 
     if [[ "${RESULT}" -eq 0 ]]; then
         labelText "Add ${1} to ignore list"
