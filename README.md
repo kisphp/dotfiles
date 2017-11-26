@@ -53,6 +53,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | o | Open file in default app, open url in browser from terminal |
 | p2 | run python 2 |
 | p3 | run python 3 |
+| php_project | create a php project in current directory |
 | pfix | run `php-cs-fixer fix v` command |
 | pipup | upgrade pip packages |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |

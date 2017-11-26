@@ -1,0 +1,54 @@
+{
+  "name": "vendor-name/repo-name",
+  "description": "add description here",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Author's name",
+      "email": "test@example.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "platform": {
+      "php": "7.1"
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "custom-scripts": [],
+    "post-install-cmd": [
+      "@custom-scripts"
+    ],
+    "post-update-cmd": [
+      "@custom-scripts"
+    ]
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    },
+    "classmap": []
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    },
+    "files": [
+      "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+    ]
+  },
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/kisphp/database.git"
+    }
+  ]
+}
