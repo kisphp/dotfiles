@@ -58,6 +58,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | pipup | upgrade pip packages |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | sf | shortcut to `app/console` or `bin/console` or `vendor/bin/console` |
+| showlogs | show continuous updates in system log files from /var/logs. It can receive a path as firts parameter `showlogs /path/` |
 | uncommit | Cancel last commit (if it was not pushed) |
 | vagon | run `vagrant up $@ && vagrant ssh` |
 | vagof | run `vagrant suspend` |
