@@ -28,10 +28,10 @@ phpre () {
 
         return 0
     fi
-    if [[ -f '/etc/init.d/php7-fpm' ]]; then
-        dotfiles_log "Restart version 7" "FPM"
-        sudo /etc/init.d/php7-fpm restart
-        writeErrorMessage "PHP 7 FPM could not be restarted"
+    if [[ -f '/etc/init.d/php7.1-fpm' ]]; then
+        dotfiles_log "Restart version 7.1" "FPM"
+        sudo /etc/init.d/php7.1-fpm restart
+        writeErrorMessage "PHP 7.1 FPM could not be restarted"
 
         return 0
     fi
@@ -42,10 +42,10 @@ phpre () {
 
         return 0
     fi
-    if [[ -f '/etc/init.d/php7.1-fpm' ]]; then
-        dotfiles_log "Restart version 7.1" "FPM"
-        sudo /etc/init.d/php7.1-fpm restart
-        writeErrorMessage "PHP 7.1 FPM could not be restarted"
+    if [[ -f '/etc/init.d/php7-fpm' ]]; then
+        dotfiles_log "Restart version 7" "FPM"
+        sudo /etc/init.d/php7-fpm restart
+        writeErrorMessage "PHP 7 FPM could not be restarted"
 
         return 0
     fi
