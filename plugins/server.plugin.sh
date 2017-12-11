@@ -49,6 +49,13 @@ phpre () {
 
         return 0
     fi
+    if [[ -f '/etc/init.d/php5.6-fpm' ]]; then
+        dotfiles_log "Restart version 5" "FPM"
+        sudo /etc/init.d/php5.6-fpm restart
+        writeErrorMessage "PHP 5.6 FPM could not be restarted"
+
+        return 0
+    fi
     if [[ -f '/etc/init.d/php5-fpm' ]]; then
         dotfiles_log "Restart version 5" "FPM"
         sudo /etc/init.d/php5-fpm restart
