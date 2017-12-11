@@ -21,6 +21,22 @@ myre () {
     writeErrorMessage "MySQL could not be restarted"
 }
 
+elre () {
+    dotfiles_log "Restart" "Elasticsearch"
+    sudo /etc/init.d/elasticsearch restart
+    writeErrorMessage "Elasticsearch could not be restarted"
+}
+
+eltest () {
+    if [[ -z "$1" ]]; then
+        EL_PORT=9200
+    else
+        EL_PORT="${1}"
+    fi
+    dotfiles_log "Test communication" "Elasticsearch"
+    curl "localhost:${EL_PORT}"
+}
+
 # restart phpfpm
 phpre () {
     if [[ $(uname) != "Linux" ]]; then
@@ -46,6 +62,13 @@ phpre () {
         dotfiles_log "Restart version 7" "FPM"
         sudo /etc/init.d/php7-fpm restart
         writeErrorMessage "PHP 7 FPM could not be restarted"
+
+        return 0
+    fi
+    if [[ -f '/etc/init.d/php5.6-fpm' ]]; then
+        dotfiles_log "Restart version 5" "FPM"
+        sudo /etc/init.d/php5.6-fpm restart
+        writeErrorMessage "PHP 5.6 FPM could not be restarted"
 
         return 0
     fi
