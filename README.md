@@ -28,7 +28,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | _upgrade_dotfiles | force update of the tool |
 | _upgrade_dotfiles_timestamp | update last check lock file |
 | _should_upgrade | check for new upgrades |
-| allow_ssh_auth | `allow_ssh_auth user@server.domain` will allow you to connect via SSH without password |
+| allow_ssh_auth | `allow_ssh_auth user@server.domain` will allow you to connect via SSH without password. For a different port to ssh, just append `-p <port_number>` at the end |
 | apare | run `sudo /etc/init.d/apache2 restart` |
 | clean_repo | alias to `git_clean_repo` |
 | [cln](docs/cln.md) | clone a repository from Github |
