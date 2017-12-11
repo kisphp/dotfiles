@@ -21,6 +21,22 @@ myre () {
     writeErrorMessage "MySQL could not be restarted"
 }
 
+elre () {
+    dotfiles_log "Restart" "Elasticsearch"
+    sudo /etc/init.d/elasticsearch restart
+    writeErrorMessage "Elasticsearch could not be restarted"
+}
+
+eltest () {
+    if [[ -z "$1" ]]; then
+        EL_PORT=9200
+    else
+        EL_PORT="${1}"
+    fi
+    dotfiles_log "Test communication" "Elasticsearch"
+    curl "localhost:${EL_PORT}"
+}
+
 # restart phpfpm
 phpre () {
     if [[ $(uname) != "Linux" ]]; then
