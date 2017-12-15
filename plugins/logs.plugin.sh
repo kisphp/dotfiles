@@ -6,5 +6,8 @@ showlogs () {
         PATH='/var/log'
     fi
 
-    tail -f $(find "${PATH}" -type f -name '*.log')
+    TAIL=$(which tail)
+    FIND=$(which find)
+
+    $TAIL -f $($FIND "${PATH}" -type f -name '*.log')
 }
