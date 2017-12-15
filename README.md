@@ -30,6 +30,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | _should_upgrade | check for new upgrades |
 | allow_ssh_auth | `allow_ssh_auth user@server.domain` will allow you to connect via SSH without password. For a different port to ssh, just append `-p <port_number>` at the end |
 | apare | run `sudo /etc/init.d/apache2 restart` |
+| banip | ban ip address |
 | clean_repo | alias to `git_clean_repo` |
 | [cln](docs/cln.md) | clone a repository from Github |
 | codecept | run codeception suite |
@@ -60,6 +61,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | pipup | upgrade pip packages |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | sf | shortcut to `app/console` or `bin/console` or `vendor/bin/console` |
+| showlogs | show continuous updates in system log files from /var/logs. It can receive a path as firts parameter `showlogs /path/` |
 | uncommit | Cancel last commit (if it was not pushed) |
 | vagon | run `vagrant up $@ && vagrant ssh` |
 | vagof | run `vagrant suspend` |
