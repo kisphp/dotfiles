@@ -69,18 +69,46 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | vagkill | run `vagrant destroy && exit`  |
 | vagkil | run `vagrant destroy` |
 | vagSrc | search for VM path |
-| vsh | run `vagrant ssh` | 
-| vst | run `vagrant status` | 
-| vup | run `vagrant up` | 
-| von | run `vaon` function | 
+| vsh | run `vagrant ssh` |
+| vst | run `vagrant status` |
+| vup | run `vagrant up` |
+| von | run `vaon` function |
 | writeErrorMessage | called in some commands when they fail to display the errorText |
 
 ## Configuration scripts
 
 Git Config (will require user interaction for name and email)
- 
+
 `scripts/git-config.sh` setup git global configuration [git-config](scripts/git-config.sh)
- 
+
 Vim Config
 
 `scripts/vim-config.sh` setup vim configurations for user [vim-config](scripts/vim-config.sh)
+
+
+# Make ISO images on Linux
+
+```bash
+sudo dd if=/dev/cdrom of=/path/to/cd.iso
+# or
+sudo dd if=/dev/dvd of=/path/to/dvd.iso
+```
+
+> ### Explanation
+> `sudo` only if the user doesn't have enough permissions
+> `dd` stands for Disk Dump
+> `if` stands for Input File
+> `of` stands for Output File
+
+# Mounting an image
+
+```bash
+mkdir -p /mnt/isoimage
+mount -o loop -t iso9660 cd.iso /mnt/isoimage
+```
+
+# Unmounting
+
+```bash
+umount -lf /mnt/isoimage
+```
