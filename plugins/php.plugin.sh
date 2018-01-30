@@ -76,6 +76,8 @@ php_new_dir () {
 php_project () {
     php_new_dir "./src"
     php_new_dir "./tests"
+    php_new_dir "./web"
+    echo "<?php\n\nrequire_once __DIR__ . '/../vendor/autoload.php';\n\nphpinfo();\n" > ./web/index.php
 
     if [[ ! -f './composer.json' ]]; then
         labelText "Generate composer.json file"
