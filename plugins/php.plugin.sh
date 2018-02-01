@@ -64,8 +64,8 @@ php_git_ignore_element () {
 
 php_new_dir () {
     if [[ ! -d "${1}" ]]; then
-        labelText "Create ${1} directory"
-        mkdir "${1}"
+        echo "Create ${1} directory"
+        mkdir -p "${1}"
     else
         infoText "${1} directory already exists. ignoring"
     fi
@@ -73,22 +73,25 @@ php_new_dir () {
     return 0
 }
 
-php_project () {
-    php_new_dir "./src"
-    php_new_dir "./tests"
-    php_new_dir "./web"
-    echo "<?php\n\nrequire_once __DIR__ . '/../vendor/autoload.php';\n\nphpinfo();\n" > ./web/index.php
-
-    if [[ ! -f './composer.json' ]]; then
-        labelText "Generate composer.json file"
-        cp ~/.dotfiles/templates/composer.json ./composer.json
+safe_copy_file () {
+    if [[ ! -f "${2}" ]]; then
+        echo "Copy ${1} file"
+        cp "${1}" "${2}"
     else
-        infoText "composer.json already exists. ignoring"
+        infoText "File ${1} already exists. Ignoring"
     fi
-    if [[ ! -f './.gitignore' ]]; then
-        touch .gitignore
-    fi
+}
 
-    php_git_ignore_element "vendor/"
-    php_git_ignore_element ".idea/"
+php_project () {
+    labelText "Create necessary directories"
+    php_new_dir "./src"
+    php_new_dir "./tests/Demo"
+    php_new_dir "./web"
+
+    labelText "Copy files"
+    safe_copy_file ~/.dotfiles/templates/index.php ./web/index.php
+    safe_copy_file ~/.dotfiles/templates/DemoTest.php ./tests/Demo/DemoTest.php
+    safe_copy_file ~/.dotfiles/templates/phpunit.xml.dist ./phpunit.xml.dist
+    safe_copy_file ~/.dotfiles/templates/composer.json ./composer.json
+    safe_copy_file ~/.dotfiles/templates/.gitignore ./.gitignore
 }
