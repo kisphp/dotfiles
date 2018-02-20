@@ -5,5 +5,9 @@
 # "o http://example.com" = open URL in default browser.
 # "o" = open pwd in Finder.
 o () {
-  open ${@:-'.'}
+    open ${@:-'.'}
+}
+
+stree () {
+    open -a SourceTree "${1}"
 }
