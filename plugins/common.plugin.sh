@@ -13,3 +13,21 @@ mcd () {
     mkdir "${1}" && cd "${1}"
     writeErrorMessage "Could not create directory ${1}"
 }
+
+edit () {
+    if [[ "${1}" != "" ]]; then
+        dotfiles_log "I am in directory $(pwd) and I open in phpstorm: ${1}"
+        pstorm "${1}"
+        return 0
+    else
+        dotfiles_log "I am in directory $(pwd) and I open in it phpstorm"
+        pstorm .
+        return 0
+    fi
+
+    echo "\nUsage:\n"
+    echo "${0} <directory_name>  -> open phpstorm in specified directory"
+    echo "${0} .  -> open phpstorm in current directory"
+    echo " "
+    return 1
+}
