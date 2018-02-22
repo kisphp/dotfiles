@@ -36,13 +36,14 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | codecept | run codeception suite |
 | [debug](docs/debug.md) | configure xdebug parameters for php scripts |
 | edited | display edited files in repository |
-| findbox | find virtual boxes in host machine |
 | ged | alias to `edited` |
 | gign | add file or directory to gitignore |
+| git_config | Run git configuration script |
 | git_clean_repo | remove merged branched from local and remote |
 | kvm | install kisphp virtual machine |
 | labelText | Text on blue background |
 | listbox | List vagrant boxes location |
+| edit | Open PHPStorm in specified directory. If no directory is given, then it will open in current directory |
 | elre | Restart Elasticsearch |
 | eltest | Check elasticsearch response with curl. Usage `eltest` or specify the port: `eltest 10009` |
 | errorText | Text on red background |
@@ -59,16 +60,19 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | php_project | create a php project in current directory |
 | pfix | run `php-cs-fixer fix v` command |
 | pipup | upgrade pip packages |
+| pip3up | upgrade pip3 packages |
 | phpre | run `sudo /etc/init.d/php7-fpm restart` |
 | sf | shortcut to `app/console` or `bin/console` or `vendor/bin/console` |
 | showlogs | show continuous updates in system log files from /var/logs. It can receive a path as firts parameter `showlogs /path/` |
 | uncommit | Cancel last commit (if it was not pushed) |
+| vim_config | Run VIM configuration script |
 | vagon | run `vagrant up $@ && vagrant ssh` |
 | vagof | run `vagrant suspend` |
 | vagoff | run `vagrant suspend && exit` |
 | vagkill | run `vagrant destroy && exit`  |
 | vagkil | run `vagrant destroy` |
 | vagSrc | search for VM path |
+| vstopr | stop all vagrant running machines |
 | vsh | run `vagrant ssh` |
 | vst | run `vagrant status` |
 | vup | run `vagrant up` |

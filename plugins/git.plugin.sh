@@ -2,6 +2,95 @@
 
 GIT=$(which git)
 
+alias clean_repo='git_clean_repo'
+alias ged='edited'
+
+cln () {
+    show_manual cln $1 && return 0
+    REPOSITORY=$1
+    shift
+
+    dotfiles_log "Cloned ${REPOSITORY} $*" "Git"
+
+    if [[ -z "$*" ]];then
+        $GIT clone "https://github.com/${REPOSITORY}.git"
+    else
+        $GIT clone "https://github.com/${REPOSITORY}.git" "$*"
+    fi
+    writeErrorMessage "Could not clone repository ${REPOSITORY}"
+}
+
+edited () {
+    BRANCH='master'
+
+    while getopts ":b:" opt; do
+        case $opt in
+            b)
+                shift
+                if [[ "${1}" != "" ]];then
+                    BRANCH="${1}"
+                fi
+                ;;
+        esac
+    done
+
+    files="$(${GIT} diff --name-only origin/${BRANCH})"
+
+    for file in $files;
+    do
+        echo $file
+    done
+}
+
+gign () {
+    dotfiles_log "Add file '${1}' to gitignore" "Git"
+    echo "${1}" >> .gitignore
+}
+
+git_clean_repo () {
+    dotfiles_log "Start repo cleanup" "Git clean"
+    $GIT checkout master &> /dev/null
+
+    dotfiles_log "Run fetch" "Git clean"
+    # Make sure we're working with the most up-to-date version of master.
+    $GIT fetch
+
+    # Prune obsolete remote tracking branches. These are branches that we
+    # once tracked, but have since been deleted on the remote.
+    dotfiles_log "Prune obsolete tracking branches" "Git clean"
+    $GIT remote prune origin
+
+    # List all the branches that have been merged fully into master, and
+    # then delete them. We use the remote master here, just in case our
+    # local master is out of date.
+    dotfiles_log "Remove all branches that were merged" "Git clean"
+    for br in $($GIT branch --merged origin/master | grep -v 'master$'); do
+        dotfiles_log "Deleted branch: ${br} from ${PWD}" "Git clean"
+        $GIT branch -D "${br}"
+    done
+
+    # Now the same, but including remote branches.
+    dotfiles_log "List all branches that were merged + remote" "Git clean"
+    MERGED_ON_REMOTE=$($GIT branch -r --merged origin/master | sed 's/ *origin\///' | grep -v 'master$')
+
+    if [ "$MERGED_ON_REMOTE" ]; then
+        infoText "The following remote branches are fully merged and will be removed: ${MERGED_ON_REMOTE}"
+
+        echo "Continue (y/N)? "
+        read REPLY
+        if [[ "$REPLY" == Y* ]] || [[ "$REPLY" == y* ]]; then
+            git branch -r --merged origin/master | sed 's/ *origin\///' \
+                | grep -v 'master$' | xargs -I% git push origin :% 2>&1 \
+                | grep --colour=never 'deleted'
+            successText "Remove branches were successfully deleted: ${MERGED_ON_REMOTE}"
+        fi
+    fi
+}
+
+git_config () {
+    $(which bash) ~/.dotfiles/scripts/git-config.sh
+}
+
 # quick git merge and push
 makeup () {
     show_manual makeup $1 && return 0
@@ -44,98 +133,6 @@ makeup () {
     dotfiles_log "committed message '${*}' and pushed" "Git"
 }
 
-gign () {
-    dotfiles_log "Add file '${1}' to gitignore" "Git"
-    echo "${1}" >> .gitignore
-}
-
-edited () {
-    BRANCH='master'
-
-    while getopts ":b:" opt; do
-        case $opt in
-            b)
-                shift
-                if [[ "${1}" != "" ]];then
-                    BRANCH="${1}"
-                fi
-                ;;
-        esac
-    done
-
-    files="$(${GIT} diff --name-only origin/${BRANCH})"
-
-    for file in $files;
-    do
-        echo $file
-    done
-}
-
-alias ged='edited'
-
-cln () {
-    show_manual cln $1 && return 0
-    REPOSITORY=$1
-    shift
-
-    dotfiles_log "Cloned ${REPOSITORY} $*" "Git"
-
-    if [[ -z "$*" ]];then
-        $GIT clone "https://github.com/${REPOSITORY}.git"
-    else
-        $GIT clone "https://github.com/${REPOSITORY}.git" "$*"
-    fi
-    writeErrorMessage "Could not clone repository ${REPOSITORY}"
-}
-
-# Cancel last commit message
-uncommit () {
-    dotfiles_log "Cancel last commit" "Git"
-    $GIT reset --soft HEAD^
-}
-
-alias clean_repo='git_clean_repo'
-
-git_clean_repo () {
-    dotfiles_log "Start repo cleanup" "Git clean"
-    $GIT checkout master &> /dev/null
-
-    dotfiles_log "Run fetch" "Git clean"
-    # Make sure we're working with the most up-to-date version of master.
-    $GIT fetch
-
-    # Prune obsolete remote tracking branches. These are branches that we
-    # once tracked, but have since been deleted on the remote.
-    dotfiles_log "Prune obsolete tracking branches" "Git clean"
-    $GIT remote prune origin
-
-    # List all the branches that have been merged fully into master, and
-    # then delete them. We use the remote master here, just in case our
-    # local master is out of date.
-    dotfiles_log "Remove all branches that were merged" "Git clean"
-    for br in $($GIT branch --merged origin/master | grep -v 'master$'); do
-        dotfiles_log "Deleted branch: ${br} from ${PWD}" "Git clean"
-        $GIT branch -D "${br}"
-    done
-
-    # Now the same, but including remote branches.
-    dotfiles_log "List all branches that were merged + remote" "Git clean"
-    MERGED_ON_REMOTE=$($GIT branch -r --merged origin/master | sed 's/ *origin\///' | grep -v 'master$')
-
-    if [ "$MERGED_ON_REMOTE" ]; then
-        infoText "The following remote branches are fully merged and will be removed: ${MERGED_ON_REMOTE}"
-
-        echo "Continue (y/N)? "
-        read REPLY
-        if [[ "$REPLY" == Y* ]] || [[ "$REPLY" == y* ]]; then
-            git branch -r --merged origin/master | sed 's/ *origin\///' \
-                | grep -v 'master$' | xargs -I% git push origin :% 2>&1 \
-                | grep --colour=never 'deleted'
-            successText "Remove branches were successfully deleted: ${MERGED_ON_REMOTE}"
-        fi
-    fi
-}
-
 mergefile () {
     FILE_1="${1}"
     FILE_2="${2}"
@@ -162,4 +159,10 @@ mergefile () {
     rm "${FILE_1}.merged"
 
     return 0
+}
+
+# Cancel last commit message
+uncommit () {
+    dotfiles_log "Cancel last commit" "Git"
+    $GIT reset --soft HEAD^
 }

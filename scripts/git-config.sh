@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. ../kisphp-dotfiles.sh
+. ~/.dotfiles/kisphp-dotfiles.sh
 
 echo -e "What ${INFO}username${NC} would you like to use for git ?"
 read username

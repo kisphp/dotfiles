@@ -15,7 +15,6 @@ mcd () {
 }
 
 edit () {
-
     if [[ "${1}" == "-h" ]]; then
         printf "\n%s:\n" "Usage"
         echo "${0} [directory_name]  -> open phpstorm in specified directory"

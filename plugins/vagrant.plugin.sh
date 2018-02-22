@@ -36,35 +36,20 @@ vagkill () {
 }
 
 # find vagrant installed boxes
-findbox () {
-    if [[ -d "${HOME}/VirtualBox Vms" ]]; then
-        dotfiles_log "Search: ${HOME}/VirtualBox\ Vms" "VirtualBox img search"
-        find "${HOME}/VirtualBox Vms" -type f -name '*.vbox'
-    fi
-    if [[ -d "${HOME}/VirtualBox_Vms" ]]; then
-        dotfiles_log "Search: ${HOME}/VirtualBox_Vms" "VirtualBox img search"
-        find $HOME/VirtualBox_Vms -type f -name '*.vbox'
-    fi
-}
-
-# find vagrant box location
-vagSrc () {
-    grep -Hrni 'SharedFolder name="vagrant"' "$1"
-}
-
 listbox () {
-    # get list of vagrant boxes and save it to a file
-    findbox > /tmp/findbox.list
+    vagrant global-status
+}
 
-    IFS=$'\n' # make new lines the only separator
-    for line in $(cat /tmp/findbox.list)
-    do
-        # display result
-        vagSrc "$line"
-    done
+vstopr () {
+    if [[ "${1}" == "-l" ]]; then
+        listbox | grep running
 
-    # remove temporary file
-    rm /tmp/findbox.list
+        return 0
+    fi
+
+    listbox | grep running | awk '{print $1}' | xargs vagrant suspend
+
+    return 0
 }
 
 # download kisphp virtual machine for single symfony project
@@ -74,6 +59,6 @@ kvm () {
     else
         DIR=$1
     fi
-    dotfiles_log "cloned KVM into ${DIR}" Git
+    dotfiles_log "cloned KVM into ${DIR}" "Git"
     cln "kisphp/symfony-vagrant" "${DIR}"
 }
