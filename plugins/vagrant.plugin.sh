@@ -40,6 +40,8 @@ listbox () {
     vagrant global-status
 }
 
+alias vstg='listbox'
+
 vstopr () {
     if [[ "${1}" == "-l" ]]; then
         listbox | grep running

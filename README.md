@@ -72,6 +72,7 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | vagkill | run `vagrant destroy && exit`  |
 | vagkil | run `vagrant destroy` |
 | vagSrc | search for VM path |
+| vstg | alias to `vagrant global-status` |
 | vstopr | stop all vagrant running machines |
 | vsh | run `vagrant ssh` |
 | vst | run `vagrant status` |
