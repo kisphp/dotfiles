@@ -36,6 +36,8 @@ curl https://raw.githubusercontent.com/kisphp/dotfiles/master/install.sh | bash 
 | codecept | run codeception suite |
 | [debug](docs/debug.md) | configure xdebug parameters for php scripts |
 | edited | display edited files in repository |
+| gs2h | convert git remote from SSH to HTTPS |
+| gh2s | convert git remote from HTTPS to SSH |
 | ged | alias to `edited` |
 | gign | add file or directory to gitignore |
 | git_config | Run git configuration script |

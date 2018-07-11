@@ -166,3 +166,24 @@ uncommit () {
     dotfiles_log "Cancel last commit" "Git"
     $GIT reset --soft HEAD^
 }
+
+gs2h () {
+    infoText "Git convert from SSH to HTTPS"
+    REMOTE=$(git config --get remote.origin.url)
+
+    NEW_REMOTE=$(echo $REMOTE | sed s#\:#\/# | sed s#git\@#https\:\/\/#g)
+
+    git remote set-url origin $NEW_REMOTE
+
+    #git@gitlab.com:rmeirosu/comunicate-de-afaceri.git
+    #https://gitlab.com/rmeirosu/comunicate-de-afaceri.git
+}
+
+gh2s () {
+    infoText "Git convert from HTTPS to SSH"
+    REMOTE=$(git config --get remote.origin.url)
+
+    NEW_REMOTE=$(echo $REMOTE | sed s#https\:\/\/#git\@#g | sed s#\/#\:#)
+
+    git remote set-url origin $NEW_REMOTE
+}
