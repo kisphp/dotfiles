@@ -24,9 +24,11 @@ fi
 . "${DOTFILES}/tools/upgrade.sh"
 
 errorText "This project was moved to GITLAB."
-git remote --set-url origin https://gitlab.com/marius-rizac/dotfiles.git
+cd $DOTFILES
+git remote set-url origin https://gitlab.com/marius-rizac/dotfiles.git
 git reset --hard
 git pull --rebase -v
+cd -
 
 ## load plugins
 #for PLUGIN in $(find $DOTFILES/plugins -type f -name '*.plugin.sh'); do
